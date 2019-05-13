@@ -49,6 +49,7 @@ public class Artikel {
 
     /**
      * Het ophalen van de waarde die hoort bij de variabele prijs.
+     * @return Waarde van de prijs.
      */
     protected float getPrijs() {
         return this.prijs;
@@ -64,6 +65,7 @@ public class Artikel {
 
     /**
      * Het ophalen van de waarde die hoort bij de variabele naam.
+     * @return Waarde van de naam.
      */
     protected String getNaam() {
         return this.naam;
