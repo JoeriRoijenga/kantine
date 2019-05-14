@@ -6,10 +6,18 @@ public class Dienblad {
     private ArrayList<Artikel> artikelen;
 
     /**
-     * Constructor
+     * Default constructor voor de klasse dienblad.
      */
     public Dienblad() {
-        // method body omitted
+        artikelen = new ArrayList<>();
+    }
+
+    /**
+     * Contstuctor voor de klasse dienblad.
+     * @param klant Klant variabele van het type Persoon.
+     */
+    public Dienblad(Persoon klant) {
+        artikelen = new ArrayList<>();
     }
 
     /**
@@ -18,7 +26,7 @@ public class Dienblad {
      * @param artikel
      */
     public void voegToe(Artikel artikel) {
-        // method body omitted
+        artikelen.add(artikel);
     }
 
     /**
@@ -27,8 +35,7 @@ public class Dienblad {
      * @return Het aantal artikelen
      */
     public int getAantalArtikelen() {
-        // method body omitted
-        return 0;
+        return artikelen.size();
     }
 
     /**
@@ -38,8 +45,13 @@ public class Dienblad {
      * @return De totaalprijs
      */
     public double getTotaalPrijs() {
-        // method body omitted
-        return 0;
+        int prijs = 0;
+
+        for (Artikel artikel : artikelen) {
+            prijs += artikel.getPrijs();
+        }
+
+        return prijs;
     }
 }
 
