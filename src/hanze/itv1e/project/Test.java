@@ -11,6 +11,6 @@ public class Test {
         System.out.println(artikel.toString());
 
         Datum datum = new Datum();
-        System.out.println(datum.bestaatDatum(01, 12, 400));
+        System.out.println(datum.bestaatDatum(01, 12, 2012));
     }
 }
