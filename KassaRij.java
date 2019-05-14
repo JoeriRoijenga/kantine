@@ -26,9 +26,9 @@ public class KassaRij {
      *
      * @return Eerste klant in de rij of null
      */
-    public Dienblad eerstePersoonInRij() {
-        // method body omitted
-    }
+//    public Dienblad eerstePersoonInRij() {
+//        // method body omitted
+//    }
 
     /**
      * Methode kijkt of er personen in de rij staan.
@@ -37,5 +37,6 @@ public class KassaRij {
      */
     public boolean erIsEenRij() {
         // method body omitted
+        return false;
     }
 }

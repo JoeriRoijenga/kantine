@@ -14,9 +14,9 @@ public class Artikel {
     private String naam;
 
     /**
-     * Private prijs in de vorm van een float.
+     * Private prijs in de vorm van een double.
      */
-    private float prijs;
+    private double prijs;
 
     /**
      * Constructor voor de klasse Artikel
@@ -24,7 +24,7 @@ public class Artikel {
      * @param naam De naam voor het nieuwe artikel.
      * @param prijs De prijs voor het nieuwe artikel.
      */
-    public Artikel(String naam, float prijs) {
+    public Artikel(String naam, double prijs) {
         // Initialisatie van de variabelen.
         this.naam = naam;
         this.prijs = prijs;
@@ -43,14 +43,15 @@ public class Artikel {
      * Het intialiseren van de waarde voor de prijs.
      * @param prijs De prijs van het artikel.
      */
-    protected void setPrijs(float prijs) {
+    protected void setPrijs(double prijs) {
         this.prijs = prijs;
     }
 
     /**
      * Het ophalen van de waarde die hoort bij de variabele prijs.
+     * @return Waarde van de prijs.
      */
-    protected float getPrijs() {
+    protected double getPrijs() {
         return this.prijs;
     }
 
@@ -64,8 +65,17 @@ public class Artikel {
 
     /**
      * Het ophalen van de waarde die hoort bij de variabele naam.
+     * @return Waarde van de naam.
      */
     protected String getNaam() {
         return this.naam;
+    }
+
+    /**
+     * Een string van alle data.
+     * @return String met alle nodige data.
+     */
+    public String toString() {
+        return "Artikelnaam: " + getNaam() + " prijs: " + getPrijs();
     }
 }
