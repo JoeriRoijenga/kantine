@@ -10,7 +10,10 @@ public class Test {
         Artikel artikel = new Artikel("Banaan", 1.99);
         System.out.println(artikel.toString());
 
-        Datum datum = new Datum();
-        System.out.println(datum.bestaatDatum(01, 12, 2012));
+        Datum datum = new Datum(30, 02, 2014);
+        System.out.println(datum.bestaatDatum(30, 02, 2014));
+        System.out.println(datum.getDag());
+        System.out.println(datum.getMaand());
+        System.out.println(datum.getJaar());
     }
 }
