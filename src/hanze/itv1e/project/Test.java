@@ -1,3 +1,5 @@
+package hanze.itv1e.project;
+
 public class Test {
     public static void main(String[] args) {
         Persoon persoon = new Persoon(748372947, "Test", "Tester", "13-05-2019", "V");

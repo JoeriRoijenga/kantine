@@ -1,3 +1,5 @@
+package hanze.itv1e.project;
+
 /**
  * Klasse Artikel
  *

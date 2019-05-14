@@ -1,6 +1,6 @@
+package hanze.itv1e.project;
+
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Stack;
 
 public class Dienblad {
     private ArrayList<Artikel> artikelen;

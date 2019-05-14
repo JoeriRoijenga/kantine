@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
+package hanze.itv1e.project;
 
 public class KassaRij {
 

@@ -1,4 +1,4 @@
-import java.util.Iterator;
+package hanze.itv1e.project;
 
 public class Kassa {
 

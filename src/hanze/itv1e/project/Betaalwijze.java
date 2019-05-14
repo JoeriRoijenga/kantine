@@ -1,3 +1,5 @@
+package hanze.itv1e.project;
+
 public abstract class Betaalwijze {
 
     protected double saldo;

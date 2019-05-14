@@ -1,3 +1,5 @@
+package hanze.itv1e.project;
+
 public class Pinpas extends Betaalwijze {
 
     private double kredietlimiet;
