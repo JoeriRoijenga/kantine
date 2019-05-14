@@ -9,5 +9,8 @@ public class Test {
 
         Artikel artikel = new Artikel("Banaan", 1.99);
         System.out.println(artikel.toString());
+
+        Datum datum = new Datum();
+        System.out.println(datum.bestaatDatum(01, 12, 400));
     }
 }

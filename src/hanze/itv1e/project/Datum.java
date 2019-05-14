@@ -78,7 +78,7 @@ public class Datum {
 
 	public boolean bestaatDatum(int dag, int maand, int jaar){
 		boolean schrikkeljaar;
-		if ((((jaar %= 4) == 0) && ((jaar %= 100) != 0)) || ((jaar %= 400) == 0)) {
+		if ((((jaar % 4) == 0) && ((jaar % 100) != 0)) || ((jaar % 400) == 0)) {
 			schrikkeljaar = true;
 		} else {
 			schrikkeljaar = false;
