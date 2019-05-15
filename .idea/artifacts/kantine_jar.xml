@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="kantine:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/kantine_jar</output-path>
-    <root id="archive" name="kantine.jar">
-      <element id="module-output" name="kantine" />
-    </root>
-  </artifact>
-</component>
