@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
+    private Persoon klant;
 
     /**
      * Default constructor voor de klasse dienblad.
@@ -18,6 +19,7 @@ public class Dienblad {
      */
     public Dienblad(Persoon klant) {
         artikelen = new ArrayList<>();
+        setKlant(klant);
     }
 
     /**
@@ -52,6 +54,22 @@ public class Dienblad {
         }
 
         return prijs;
+    }
+
+    /**
+     * Het ophalen van de klant.
+     * @return De waarde van de klant.
+     */
+    public Persoon getKlant() {
+        return klant;
+    }
+
+    /**
+     * Het veranderen van de klant.
+     * @param klant De nieuwe waarde voor de klant.
+     */
+    public void setKlant(Persoon klant) {
+        this.klant = klant;
     }
 }
 

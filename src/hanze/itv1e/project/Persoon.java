@@ -44,9 +44,9 @@ public class Persoon {
      * @param geslacht Het geslacht voor een nieuw persoon.
      */
     public Persoon(int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht) {
-        this.BSN = BSN;
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+        setBSN(BSN);
+        setVoornaam(voornaam);
+        setAchternaam(achternaam);
         //this.geboorteDatum = geboorteDatum;
         setGeslacht(geslacht);
     }
@@ -60,9 +60,9 @@ public class Persoon {
      */
     public Persoon(int BSN, String voornaam, String achternaam) {
         // Initialisatie
-        this.BSN = BSN;
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+        setBSN(BSN);
+        setVoornaam(voornaam);
+        setAchternaam(achternaam);
     }
 
     /**
