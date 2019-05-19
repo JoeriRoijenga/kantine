@@ -1,11 +1,40 @@
 package hanze.itv1e.project;
+
 import java.util.*;
+
+/**
+ * Klasse Datum
+ *
+ * Deze klasse beheert alle eigenschappen van de datum.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class Datum {
 
+	/**
+	 * Private dag in de vorm van een int.
+	 */
 	private int dag;
+
+	/**
+	 * Private maand in de vorm van een int.
+	 */
 	private int maand;
+
+	/**
+	 * Private jaar in de vorm van een int.
+	 */
 	private int jaar;
+
+	/**
+	 * Private array met de maanden met 30 dagen.
+	 */
 	private ArrayList<Integer> maandenMet30;
+
+	/**
+	 * Private array met de maanden met 31 dagen.
+	 */
 	private ArrayList<Integer> maandenMet31;
 
 	/**
@@ -13,31 +42,29 @@ public class Datum {
 	 * @param dag de dag in een datum
 	 * @param maand de maand in een datum
 	 * @param jaar het jaar in een datum
-	 * @return
 	 */
-	public Datum(int dag, int maand, int jaar){
-		new Datum();
+	Datum(int dag, int maand, int jaar){
 		if (bestaatDatum(dag, maand, jaar)) {
-			this.dag = dag;
-			this.maand = maand;
-			this.jaar = jaar;
+			setDag(dag);
+			setMaand(maand);
+			setJaar(jaar);
 		}
 	}
 
 	/**
-	 * Paramteterloze constructor voor de klasse Datum
+	 * Default constructor voor de klasse Datum
 	 */
-	public Datum() {
-		this.dag = 0;
-		this.maand = 0;
-		this.jaar = 0;
+	 Datum() {
+	 	setDag(0);
+		setMaand(0);
+		setJaar(0);
 	}
 
 	/**
 	 * Haalt de dag van de datum op
 	 * @return dag
 	 */
-	public String getDag() {
+	String getDag() {
 		if(String.valueOf(dag).length() == 1) {
 			return "0" + dag;
 		}
@@ -46,9 +73,9 @@ public class Datum {
 
 	/**
 	 * Stelt de dag van een datum in
-	 * @param dag
+	 * @param dag De nieuw dag.
 	 */
-	public void setDag(int dag) {
+	private void setDag(int dag) {
 		this.dag = dag;
 	}
 
@@ -56,7 +83,7 @@ public class Datum {
 	 * haalt de maand van een datum op
 	 * @return maand
 	 */
-	public String getMaand() {
+	String getMaand() {
 		if(String.valueOf(maand).length() == 1) {
 			return "0" + maand;
 		}
@@ -65,17 +92,17 @@ public class Datum {
 
 	/**
 	 * Stelt de maand van een datum in
-	 * @param maand
+	 * @param maand Nieuw waarde voor maand.
 	 */
-	public void setMaand(int maand) {
+	private void setMaand(int maand) {
 		this.maand = maand;
 	}
 
 	/**
 	 * Geeft het jaar van een datum terug
-	 * @return
+	 * @return jaar
 	 */
-	public String getJaar() {
+	 String getJaar() {
 		if(String.valueOf(jaar).length() < 4) {
 			return "000" + jaar;
 		}
@@ -84,16 +111,21 @@ public class Datum {
 
 	/**
 	 * stelt het jaar van een datum in
-	 * @param jaar
+	 * @param jaar Nieuwe waarde voor jaar.
 	 */
-	public void setJaar(int jaar) {
+	private void setJaar(int jaar) {
 		this.jaar = jaar;
 	}
 
-	public boolean bestaatDatum(int dag, int maand, int jaar){
+	/**
+	 * Gaat na of de datum daadwerkelijk bestaat.
+	 * @param dag
+	 * @param maand
+	 * @param jaar
+	 * @return boolean
+	 */
+	boolean bestaatDatum(int dag, int maand, int jaar){
 		boolean schrikkeljaar;
-
-
 
 		if ((((jaar % 4) == 0) && ((jaar % 100) != 0)) || ((jaar % 400) == 0)) {
 			schrikkeljaar = true;
@@ -120,15 +152,15 @@ public class Datum {
 				}
 			}
 		}
+
 		return false;
 	}
 	
 	/**
-	 * Getter voor Sting weergave van datum
+	 * Haalt alle informatie op van de datum en geeft de datum als string terug.
 	 * @return Geboortedatum
 	 */
-	public String getDatumAsString() {
+	String getDatumAsString() {
 		return getDag() + "-" + getMaand() + "-" + getJaar();
 	}
-
  }

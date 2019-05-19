@@ -2,22 +2,34 @@ package hanze.itv1e.project;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse KassaRij
+ *
+ * Deze klasse beheert alle eigenschappen van de kassarij.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class KassaRij {
 
+    /**
+     * Private array met alle dienbladen/klanten in de rij.
+     */
     private ArrayList<Dienblad> mensenInDeRij;
+
     /**
      * Constructor
      */
-    public KassaRij() {
+    KassaRij() {
         mensenInDeRij = new ArrayList<>();
     }
 
     /**
      * Persoon sluit achter in de rij aan
      *
-     * @param klant
+     * @param klant Nieuwe kant in de rij.
      */
-    public void sluitAchteraan(Dienblad klant) {
+    void sluitAchteraan(Dienblad klant) {
         mensenInDeRij.add(klant);
     }
 
@@ -28,7 +40,7 @@ public class KassaRij {
      *
      * @return Eerste klant in de rij of null
      */
-    public Dienblad eerstePersoonInRij() {
+    Dienblad eerstePersoonInRij() {
         return mensenInDeRij.get(0);
     }
 
@@ -37,7 +49,7 @@ public class KassaRij {
      *
      * @return Of er wel of geen rij bestaat
      */
-    public boolean erIsEenRij() {
+    boolean erIsEenRij() {
         if(mensenInDeRij.size() > 0) {
             return true;
         }

@@ -45,7 +45,7 @@ public class Persoon {
      * @param geboorteDatum De geboortedatum voor een nieuw persoon.
      * @param geslacht Het geslacht voor een nieuw persoon.
      */
-    public Persoon(int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht) {
+    Persoon(int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht) {
         setBSN(BSN);
         setVoornaam(voornaam);
         setAchternaam(achternaam);
@@ -60,7 +60,7 @@ public class Persoon {
      * @param voornaam De voornaam voor een nieuw persoon.
      * @param achternaam De achternaam voor een nieuw persoon.
      */
-    public Persoon(int BSN, String voornaam, String achternaam) {
+    Persoon(int BSN, String voornaam, String achternaam) {
         // Initialisatie
         setBSN(BSN);
         setVoornaam(voornaam);
@@ -68,6 +68,11 @@ public class Persoon {
         setGeboorteDatum();
     }
 
+    /**
+     * Zorgt er voor dat je integers krijgt van de string met de datum.
+     * @param geboorteDatum De datum als string.
+     * @return array met de datum als integers.
+     */
     private int[] getInts(String geboorteDatum) {
         int[] ints = new int[3];
         String[] strings = new String[3];
@@ -84,7 +89,7 @@ public class Persoon {
      * Het ophalen van het BSN.
      * @return De waarde van het BSN.
      */
-    public int getBSN() {
+    private int getBSN() {
         return BSN;
     }
 
@@ -92,7 +97,7 @@ public class Persoon {
      * Het veranderen van het BSN.
      * @param BSN De nieuwe waarde voor het BSN.
      */
-    public void setBSN(int BSN) {
+    private void setBSN(int BSN) {
         this.BSN = BSN;
     }
 
@@ -100,7 +105,7 @@ public class Persoon {
      * Het ophalen van de voornaam.
      * @return De waarde van de voornaam.
      */
-    public String getVoornaam() {
+    private String getVoornaam() {
         return voornaam;
     }
 
@@ -108,7 +113,7 @@ public class Persoon {
      * Het veranderen van de achternaam.
      * @param voornaam De nieuwe waarde voor de achternaam.
      */
-    public void setVoornaam(String voornaam) {
+    private void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
     }
 
@@ -116,7 +121,7 @@ public class Persoon {
      * Het ophalen van de achternaam.
      * @return De waarde van de achternaam.
      */
-    public String getAchternaam() {
+    private String getAchternaam() {
         return achternaam;
     }
 
@@ -124,7 +129,7 @@ public class Persoon {
      * Het veranderen van de achternaam.
      * @param achternaam De nieuwe waarde voor de achternaam.
      */
-    public void setAchternaam(String achternaam) {
+    private void setAchternaam(String achternaam) {
         this.achternaam = achternaam;
     }
 
@@ -132,7 +137,7 @@ public class Persoon {
      * Het ophalen van de geboortedatum.
      * @return De waarde van de geboortedatum.
      */
-    public String getGeboorteDatum() {
+    private String getGeboorteDatum() {
         return geboorteDatum.getDatumAsString();
     }
 
@@ -140,7 +145,7 @@ public class Persoon {
      * Het veranderen van de geboortedatum.
      * @param geboorteDatum De nieuwe waarde voor de geboortedatum.
      */
-    public void setGeboorteDatum(int[] geboorteDatum) {
+    private void setGeboorteDatum(int[] geboorteDatum) {
         if (geboorteDatum.length != 0) {
             this.geboorteDatum = new Datum(geboorteDatum[0], geboorteDatum[1], geboorteDatum[2]);
         }
@@ -149,7 +154,7 @@ public class Persoon {
     /**
      * Het veranderen van de geboortedatum.
      */
-    public void setGeboorteDatum() {
+    private void setGeboorteDatum() {
         this.geboorteDatum = new Datum();
     }
 
@@ -157,7 +162,7 @@ public class Persoon {
      * Het ophalen van het geslacht.
      * @return De waarde van het geslacht.
      */
-    public String getGeslacht() {
+    private String getGeslacht() {
         String geslacht = String.valueOf(this.geslacht);
         String returnValue = "Onbekend";
 
@@ -174,7 +179,7 @@ public class Persoon {
      * Het veranderen van het geslacht.
      * @param geslacht De nieuwe waarde voor het geslacht.
      */
-    public void setGeslacht(String geslacht) {
+    private void setGeslacht(String geslacht) {
         if (!geslacht.equals("M") && !geslacht.equals("V")) {
             this.geslacht = "".charAt(0);
         }

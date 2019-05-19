@@ -1,16 +1,28 @@
 package hanze.itv1e.project;
 
-import java.text.DecimalFormat;
-
+/**
+ * Klasse Dienblad
+ *
+ * Deze klasse beheert alle eigenschappen van het dienblad.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class Kassa {
-
+    /**
+     * private int met het aantal producten die over de toonbank zijn gegaan.
+     */
     private int aantal;
+
+    /**
+     * private double met het geld dat in de kassa zit.
+     */
     private double geld;
 
     /**
      * Constructor
      */
-    public Kassa(KassaRij kassarij) {
+    Kassa(KassaRij kassarij) {
         // method body omitted
     }
 
@@ -22,7 +34,7 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    public void rekenAf(Dienblad klant) {
+    void rekenAf(Dienblad klant) {
         System.out.println("Aantal artikelen:" + klant.getAantalArtikelen());
         System.out.println("Te betalen: " + klant.getTotaalPrijs());
         setAantal(getAantal() + klant.getAantalArtikelen());
@@ -58,19 +70,35 @@ public class Kassa {
         setAantal(0);
     }
 
-    public int getAantal() {
+    /**
+     * Haalt het aantal producten over de toonbank op.
+     * @return aantal
+     */
+    int getAantal() {
         return aantal;
     }
 
-    public void setAantal(int aantal) {
+    /**
+     * Het aantal producten over de toonbank aanpassen.
+     * @param aantal Het nieuwe aantal producten.
+     */
+    private void setAantal(int aantal) {
         this.aantal = aantal;
     }
 
-    public double getGeld() {
+    /**
+     * Haalt het geld op dat in de kassa zit.
+     * @return geld
+     */
+    double getGeld() {
         return geld;
     }
 
-    public void setGeld(double geld) {
+    /**
+     * Het geld dat in de kassa zit aanpassen.
+     * @param geld Het nieuwe bedrag dat in de kassa zit.
+     */
+    private void setGeld(double geld) {
         this.geld = geld;
     }
 }

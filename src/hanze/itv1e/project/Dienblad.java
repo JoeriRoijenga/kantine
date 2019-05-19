@@ -4,8 +4,23 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+/**
+ * Klasse Dienblad
+ *
+ * Deze klasse beheert alle eigenschappen van het dienblad.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class Dienblad {
+    /**
+     * Private array met alle artikelen op het dienblad.
+     */
     private ArrayList<Artikel> artikelen;
+
+    /**
+     * Private klant in de vorm van het object persoon.
+     */
     private Persoon klant;
 
     /**
@@ -19,7 +34,7 @@ public class Dienblad {
      * Contstuctor voor de klasse dienblad.
      * @param klant Klant variabele van het type Persoon.
      */
-    public Dienblad(Persoon klant) {
+    Dienblad(Persoon klant) {
         artikelen = new ArrayList<>();
         setKlant(klant);
     }
@@ -29,7 +44,7 @@ public class Dienblad {
      *
      * @param artikel
      */
-    public void voegToe(Artikel artikel) {
+    void voegToe(Artikel artikel) {
         artikelen.add(artikel);
     }
 
@@ -38,7 +53,7 @@ public class Dienblad {
      *
      * @return Het aantal artikelen
      */
-    public int getAantalArtikelen() {
+    int getAantalArtikelen() {
         return artikelen.size();
     }
 
@@ -48,7 +63,7 @@ public class Dienblad {
      *
      * @return De totaalprijs
      */
-    public double getTotaalPrijs() {
+    double getTotaalPrijs() {
         double prijs = 0;
 
         for (Artikel artikel : artikelen) {
@@ -63,7 +78,7 @@ public class Dienblad {
      * Het ophalen van de klant.
      * @return De waarde van de klant.
      */
-    public Persoon getKlant() {
+    Persoon getKlant() {
         return klant;
     }
 
@@ -71,7 +86,7 @@ public class Dienblad {
      * Het veranderen van de klant.
      * @param klant De nieuwe waarde voor de klant.
      */
-    public void setKlant(Persoon klant) {
+    private void setKlant(Persoon klant) {
         this.klant = klant;
     }
 }
