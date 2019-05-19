@@ -7,6 +7,7 @@ public class Datum {
 	private int jaar;
 	private ArrayList<Integer> maandenMet30;
 	private ArrayList<Integer> maandenMet31;
+
 	/**
 	 * Constructor voor de klasse Datum
 	 * @param dag de dag in een datum
@@ -36,8 +37,11 @@ public class Datum {
 	 * Haalt de dag van de datum op
 	 * @return dag
 	 */
-	public int getDag() {
-		return dag;
+	public String getDag() {
+		if(String.valueOf(dag).length() == 1) {
+			return "0" + dag;
+		}
+		return "" + dag;
 	}
 
 	/**
@@ -52,8 +56,11 @@ public class Datum {
 	 * haalt de maand van een datum op
 	 * @return maand
 	 */
-	public int getMaand() {
-		return maand;
+	public String getMaand() {
+		if(String.valueOf(maand).length() == 1) {
+			return "0" + maand;
+		}
+		return "" + maand;
 	}
 
 	/**
@@ -68,8 +75,11 @@ public class Datum {
 	 * Geeft het jaar van een datum terug
 	 * @return
 	 */
-	public int getJaar() {
-		return jaar;
+	public String getJaar() {
+		if(String.valueOf(jaar).length() < 4) {
+			return "000" + jaar;
+		}
+		return "" + jaar;
 	}
 
 	/**
@@ -117,9 +127,8 @@ public class Datum {
 	 * Getter voor Sting weergave van datum
 	 * @return Geboortedatum
 	 */
-	/**public String getDatumAsString() {
-		// TODO
-		return "";
-		}
-*/
-	 }
+	public String getDatumAsString() {
+		return getDag() + "-" + getMaand() + "-" + getJaar();
+	}
+
+ }

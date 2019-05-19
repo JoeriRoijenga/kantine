@@ -1,5 +1,7 @@
 package hanze.itv1e.project;
 
+import java.util.Arrays;
+
 /**
  * Klasse Persoon
  *
@@ -47,7 +49,7 @@ public class Persoon {
         setBSN(BSN);
         setVoornaam(voornaam);
         setAchternaam(achternaam);
-        //this.geboorteDatum = geboorteDatum;
+        setGeboorteDatum(getInts(geboorteDatum));
         setGeslacht(geslacht);
     }
 
@@ -63,6 +65,19 @@ public class Persoon {
         setBSN(BSN);
         setVoornaam(voornaam);
         setAchternaam(achternaam);
+        setGeboorteDatum();
+    }
+
+    private int[] getInts(String geboorteDatum) {
+        int[] ints = new int[3];
+        String[] strings = new String[3];
+
+        strings = geboorteDatum.split("-");
+        ints[0] = Integer.parseInt(strings[0]);
+        ints[1] = Integer.parseInt(strings[1]);
+        ints[2] = Integer.parseInt(strings[2]);
+
+        return ints;
     }
 
     /**
@@ -117,16 +132,25 @@ public class Persoon {
      * Het ophalen van de geboortedatum.
      * @return De waarde van de geboortedatum.
      */
-    public Datum getGeboorteDatum() {
-        return geboorteDatum;
+    public String getGeboorteDatum() {
+        return geboorteDatum.getDatumAsString();
     }
 
     /**
      * Het veranderen van de geboortedatum.
      * @param geboorteDatum De nieuwe waarde voor de geboortedatum.
      */
-    public void setGeboorteDatum(Datum geboorteDatum) {
-        this.geboorteDatum = geboorteDatum;
+    public void setGeboorteDatum(int[] geboorteDatum) {
+        if (geboorteDatum.length != 0) {
+            this.geboorteDatum = new Datum(geboorteDatum[0], geboorteDatum[1], geboorteDatum[2]);
+        }
+    }
+
+    /**
+     * Het veranderen van de geboortedatum.
+     */
+    public void setGeboorteDatum() {
+        this.geboorteDatum = new Datum();
     }
 
     /**
@@ -163,6 +187,6 @@ public class Persoon {
      * @return String met alle nodige data.
      */
     public String toString() {
-        return "Naam:" + getVoornaam() + " " + getAchternaam() + " BSN: " + getBSN() + " Geboortedatum: " + getGeboorteDatum() + " geslacht: " + getGeslacht();
+        return "Naam: " + getVoornaam() + " " + getAchternaam() + " BSN: " + getBSN() + " Geboortedatum: " + getGeboorteDatum() + " geslacht: " + getGeslacht();
     }
 }

@@ -1,6 +1,11 @@
 package hanze.itv1e.project;
 
+import java.text.DecimalFormat;
+
 public class Kassa {
+
+    private int aantal;
+    private double geld;
 
     /**
      * Constructor
@@ -18,7 +23,10 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     public void rekenAf(Dienblad klant) {
-        // method body omitted
+        System.out.println("Aantal artikelen:" + klant.getAantalArtikelen());
+        System.out.println("Te betalen: " + klant.getTotaalPrijs());
+        setAantal(getAantal() + klant.getAantalArtikelen());
+        setGeld(getGeld() + klant.getTotaalPrijs());
     }
 
     /**
@@ -28,8 +36,7 @@ public class Kassa {
      * @return aantal artikelen
      */
     public int aantalArtikelen() {
-        // method body omitted
-        return 0;
+        return getAantal();
     }
 
     /**
@@ -40,8 +47,7 @@ public class Kassa {
      * @return hoeveelheid geld in de kassa
      */
     public double hoeveelheidGeldInKassa() {
-        // method body omitted
-        return 0;
+        return getGeld();
     }
 
     /**
@@ -49,6 +55,22 @@ public class Kassa {
      * de totale hoeveelheid geld in de kassa.
      */
     public void resetKassa() {
-        // method body omitted
+        setAantal(0);
+    }
+
+    public int getAantal() {
+        return aantal;
+    }
+
+    public void setAantal(int aantal) {
+        this.aantal = aantal;
+    }
+
+    public double getGeld() {
+        return geld;
+    }
+
+    public void setGeld(double geld) {
+        this.geld = geld;
     }
 }
