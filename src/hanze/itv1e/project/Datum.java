@@ -39,6 +39,7 @@ public class Datum {
 
 	/**
 	 * Constructor voor de klasse Datum
+	 *
 	 * @param dag de dag in een datum
 	 * @param maand de maand in een datum
 	 * @param jaar het jaar in een datum
@@ -62,6 +63,7 @@ public class Datum {
 
 	/**
 	 * Haalt de dag van de datum op
+	 *
 	 * @return dag
 	 */
 	String getDag() {
@@ -73,6 +75,7 @@ public class Datum {
 
 	/**
 	 * Stelt de dag van een datum in
+	 *
 	 * @param dag De nieuw dag.
 	 */
 	private void setDag(int dag) {
@@ -81,6 +84,7 @@ public class Datum {
 
 	/**
 	 * haalt de maand van een datum op
+	 *
 	 * @return maand
 	 */
 	String getMaand() {
@@ -92,6 +96,7 @@ public class Datum {
 
 	/**
 	 * Stelt de maand van een datum in
+	 *
 	 * @param maand Nieuw waarde voor maand.
 	 */
 	private void setMaand(int maand) {
@@ -111,6 +116,7 @@ public class Datum {
 
 	/**
 	 * stelt het jaar van een datum in
+	 *
 	 * @param jaar Nieuwe waarde voor jaar.
 	 */
 	private void setJaar(int jaar) {
@@ -119,19 +125,16 @@ public class Datum {
 
 	/**
 	 * Gaat na of de datum daadwerkelijk bestaat.
-	 * @param dag
-	 * @param maand
-	 * @param jaar
+	 *
+	 * @param dag Param met de dag.
+	 * @param maand Param met de maand.
+	 * @param jaar Param met het jaar.
 	 * @return boolean
 	 */
 	boolean bestaatDatum(int dag, int maand, int jaar){
 		boolean schrikkeljaar;
 
-		if ((((jaar % 4) == 0) && ((jaar % 100) != 0)) || ((jaar % 400) == 0)) {
-			schrikkeljaar = true;
-		} else {
-			schrikkeljaar = false;
-		}
+		schrikkeljaar = jaar % 4 == 0 && jaar % 100 != 0 || jaar % 400 == 0;
 
 		List<Integer> maandenMet30 = Arrays.asList(4, 6, 9, 11);
 		List<Integer> maandenMet31 = Arrays.asList(1, 3, 5, 7, 8, 10, 12);
@@ -143,12 +146,10 @@ public class Datum {
 						return true;
 					} else if ((maandenMet31.contains(maand)) && (dag <= 31)) {
 						return true;
-					} else if ((schrikkeljaar == false) && dag <= 28) {
+					} else if ((!schrikkeljaar) && dag <= 28) {
 						return true;
-					} else if ((schrikkeljaar == true) && dag <= 29) {
-						return true;
-
-					}
+					} else
+						return (schrikkeljaar) && dag <= 29;
 				}
 			}
 		}
@@ -158,6 +159,7 @@ public class Datum {
 	
 	/**
 	 * Haalt alle informatie op van de datum en geeft de datum als string terug.
+	 *
 	 * @return Geboortedatum
 	 */
 	String getDatumAsString() {

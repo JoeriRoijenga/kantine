@@ -36,6 +36,7 @@ public class Test {
         System.out.println("-----------------");
         System.out.println("Kassa");
         System.out.println("-----------------");
+
         KassaRij kassaRij = new KassaRij();
         kassaRij.sluitAchteraan(dienblad);
 
@@ -52,6 +53,7 @@ public class Test {
         System.out.println("-----------------");
         System.out.println("Datum");
         System.out.println("-----------------");
+
         Datum datum = new Datum(30, 02, 2014);
         System.out.println(datum.bestaatDatum(30, 02, 2014));
         System.out.println(datum.getDag());

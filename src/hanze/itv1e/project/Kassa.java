@@ -20,10 +20,15 @@ public class Kassa {
     private double geld;
 
     /**
+     * Private kassarij met alle klanten.
+     */
+    private KassaRij kassarij;
+
+    /**
      * Constructor
      */
     Kassa(KassaRij kassarij) {
-        // method body omitted
+        this.kassarij = kassarij;
     }
 
     /**
