@@ -1,6 +1,6 @@
 package hanze.itv1e.project;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Klasse Persoon
@@ -37,6 +37,13 @@ public class Persoon {
     private char geslacht;
 
     /**
+     * Private arraylist met de dienbladen.
+     */
+    private ArrayList<Dienblad> dienbladen;
+
+    private Dienblad huidigDienblad;
+
+    /**
      * Contructor voor de klasse Persoon.
      *
      * @param BSN Het BSN voor een nieuw persoon.
@@ -49,8 +56,9 @@ public class Persoon {
         setBSN(BSN);
         setVoornaam(voornaam);
         setAchternaam(achternaam);
-        setGeboorteDatum(getInts(geboorteDatum));
+        setGeboorteDatum(geboorteDatum);
         setGeslacht(geslacht);
+        this.dienbladen = new ArrayList<>();
     }
 
     /**
@@ -66,23 +74,6 @@ public class Persoon {
         setVoornaam(voornaam);
         setAchternaam(achternaam);
         setGeboorteDatum();
-    }
-
-    /**
-     * Zorgt er voor dat je integers krijgt van de string met de datum.
-     * @param geboorteDatum De datum als string.
-     * @return array met de datum als integers.
-     */
-    private int[] getInts(String geboorteDatum) {
-        int[] ints = new int[3];
-        String[] strings = new String[3];
-
-        strings = geboorteDatum.split("-");
-        ints[0] = Integer.parseInt(strings[0]);
-        ints[1] = Integer.parseInt(strings[1]);
-        ints[2] = Integer.parseInt(strings[2]);
-
-        return ints;
     }
 
     /**
@@ -145,10 +136,8 @@ public class Persoon {
      * Het veranderen van de geboortedatum.
      * @param geboorteDatum De nieuwe waarde voor de geboortedatum.
      */
-    private void setGeboorteDatum(int[] geboorteDatum) {
-        if (geboorteDatum.length != 0) {
-            this.geboorteDatum = new Datum(geboorteDatum[0], geboorteDatum[1], geboorteDatum[2]);
-        }
+    private void setGeboorteDatum(String geboorteDatum) {
+        this.geboorteDatum = new Datum(geboorteDatum);
     }
 
     /**
@@ -185,6 +174,72 @@ public class Persoon {
         }
 
         this.geslacht = geslacht.charAt(0);
+    }
+
+    /**
+     * Pak een dienblad voor je artikelen.
+     */
+    void pakDienblad() {
+        dienbladen.add(new Dienblad());
+    }
+
+    /**
+     * Telt hoeveel dienbladen je hebt.
+     * @return int met het aantal.
+     */
+    int telDienbladen() {
+        return dienbladen.size();
+    }
+
+    /**
+     * Kies een dienblad.
+     * @param keuze Welk dienblad.
+     */
+    void kiesDienblad(int keuze) {
+        huidigDienblad = dienbladen.get(keuze - 1);
+    }
+
+    /**
+     * Voeg een artikel toe aan je dienblad.
+     * @param artikel Het artikel dat je wil toevoegen.
+     */
+    void voegArtikelToe(Artikel artikel) {
+        huidigDienblad.voegToe(artikel);
+    }
+
+    /**
+     * Haal het aantal artikelen bij je dienblad op.
+     * @return int aantal artikelen op het dienblad.
+     */
+    int aantalOpDienblad() {
+        return huidigDienblad.getAantalArtikelen();
+    }
+
+    /**
+     * Totaal prijs voor de artikelen op het dienblad.
+     * @return double met de totaal prijs.
+     */
+    double prijsDienblad() {
+        return huidigDienblad.getTotaalPrijs();
+    }
+
+    /**
+     * Haal het huidige dienblad op.
+     * @return het huidige dienblad.
+     */
+    Dienblad krijgDienblad() {
+        if (huidigDienblad == null) {
+            huidigDienblad = dienbladen.get(0);
+        }
+        return huidigDienblad;
+    }
+
+    /**
+     * Verwijder het dienblad.
+     */
+    void verwijderDienblad() {
+        dienbladen.remove(huidigDienblad);
+        huidigDienblad = null;
     }
 
     /**

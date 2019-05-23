@@ -40,15 +40,15 @@ public class Datum {
 	/**
 	 * Constructor voor de klasse Datum
 	 *
-	 * @param dag de dag in een datum
-	 * @param maand de maand in een datum
-	 * @param jaar het jaar in een datum
+	 * @param geboorteDatum datum voor het object
 	 */
-	Datum(int dag, int maand, int jaar){
-		if (bestaatDatum(dag, maand, jaar)) {
-			setDag(dag);
-			setMaand(maand);
-			setJaar(jaar);
+	Datum(String geboorteDatum){
+		int[] datum = datumVerwerken(geboorteDatum);
+
+		if (bestaatDatum(datum[0], datum[1], datum[2])) {
+			setDag(datum[0]);
+			setMaand(datum[1]);
+			setJaar(datum[2]);
 		}
 	}
 
@@ -59,6 +59,23 @@ public class Datum {
 	 	setDag(0);
 		setMaand(0);
 		setJaar(0);
+	}
+
+	/**
+	 * Zorgt er voor dat je integers krijgt van de string met de datum.
+	 * @param geboorteDatum De datum als string.
+	 * @return array met de datum als integers.
+	 */
+	private int[] datumVerwerken(String geboorteDatum) {
+		int[] ints = new int[3];
+		String[] strings = new String[3];
+
+		strings = geboorteDatum.split("-");
+		ints[0] = Integer.parseInt(strings[0]);
+		ints[1] = Integer.parseInt(strings[1]);
+		ints[2] = Integer.parseInt(strings[2]);
+
+		return ints;
 	}
 
 	/**

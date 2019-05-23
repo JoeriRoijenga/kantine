@@ -1,5 +1,7 @@
 package hanze.itv1e.project;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
+
 public class Test {
     public static void main(String[] args) {
         System.out.println("-----------------");
@@ -25,23 +27,34 @@ public class Test {
         System.out.println(artikel3.toString());
 
         System.out.println("-----------------");
-        System.out.println("Dienblad maken");
+        System.out.println("Dienblad pakken & tellen");
         System.out.println("-----------------");
 
-        Dienblad dienblad = new Dienblad(persoon);
-        dienblad.voegToe(artikel1);
-        dienblad.voegToe(artikel2);
-        dienblad.voegToe(artikel3);
+        persoon.pakDienblad();
+        persoon.pakDienblad();
+
+        System.out.println(persoon.telDienbladen());
+
+        persoon.kiesDienblad(1);
+
+        persoon.voegArtikelToe(artikel1);
+        persoon.voegArtikelToe(artikel3);
+        persoon.voegArtikelToe(artikel2);
+
+        System.out.println(persoon.prijsDienblad());
+        System.out.println(persoon.aantalOpDienblad());
 
         System.out.println("-----------------");
         System.out.println("Kassa");
         System.out.println("-----------------");
 
         KassaRij kassaRij = new KassaRij();
-        kassaRij.sluitAchteraan(dienblad);
+        kassaRij.sluitAchteraan(persoon);
 
         Kassa kassa = new Kassa(kassaRij);
         kassa.rekenAf(kassaRij.eerstePersoonInRij());
+
+        System.out.println(persoon.telDienbladen());
 
         System.out.println("-----------------");
         System.out.println("Statistieken");
@@ -54,10 +67,12 @@ public class Test {
         System.out.println("Datum");
         System.out.println("-----------------");
 
-        Datum datum = new Datum(30, 02, 2014);
-        System.out.println(datum.bestaatDatum(30, 02, 2014));
+        Datum datum = new Datum("30-02-2014");
+        System.out.println(datum.bestaatDatum(29, 02, 2012));
         System.out.println(datum.getDag());
         System.out.println(datum.getMaand());
         System.out.println(datum.getJaar());
+
+
     }
 }

@@ -39,11 +39,15 @@ public class Kassa {
      *
      * @param klant die moet afrekenen
      */
-    void rekenAf(Dienblad klant) {
-        System.out.println("Aantal artikelen:" + klant.getAantalArtikelen());
-        System.out.println("Te betalen: " + klant.getTotaalPrijs());
-        setAantal(getAantal() + klant.getAantalArtikelen());
-        setGeld(getGeld() + klant.getTotaalPrijs());
+    void rekenAf(Persoon klant) {
+        Dienblad dienblad = klant.krijgDienblad();
+
+        System.out.println("Aantal artikelen:" + dienblad.getAantalArtikelen());
+        System.out.println("Te betalen: " + dienblad.getTotaalPrijs());
+        setAantal(getAantal() + dienblad.getAantalArtikelen());
+        setGeld(getGeld() + dienblad.getTotaalPrijs());
+
+        klant.verwijderDienblad();
     }
 
     /**

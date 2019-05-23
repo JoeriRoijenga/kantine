@@ -19,24 +19,10 @@ public class Dienblad {
     private ArrayList<Artikel> artikelen;
 
     /**
-     * Private klant in de vorm van het object persoon.
-     */
-    private Persoon klant;
-
-    /**
-     * Default constructor voor de klasse dienblad.
-     */
-    public Dienblad() {
-        artikelen = new ArrayList<>();
-    }
-
-    /**
      * Contstuctor voor de klasse dienblad.
-     * @param klant Klant variabele van het type Persoon.
      */
-    Dienblad(Persoon klant) {
+    Dienblad() {
         artikelen = new ArrayList<>();
-        setKlant(klant);
     }
 
     /**
@@ -72,22 +58,6 @@ public class Dienblad {
 
         BigDecimal bd = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
         return bd.doubleValue();
-    }
-
-    /**
-     * Het ophalen van de klant.
-     * @return De waarde van de klant.
-     */
-    Persoon getKlant() {
-        return klant;
-    }
-
-    /**
-     * Het veranderen van de klant.
-     * @param klant De nieuwe waarde voor de klant.
-     */
-    private void setKlant(Persoon klant) {
-        this.klant = klant;
     }
 }
 

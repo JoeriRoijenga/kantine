@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class KassaRij {
 
     /**
-     * Private array met alle dienbladen/klanten in de rij.
+     * Private array met alle klanten in de rij.
      */
-    private ArrayList<Dienblad> mensenInDeRij;
+    private ArrayList<Persoon> mensenInDeRij;
 
     /**
      * Constructor
@@ -29,7 +29,7 @@ public class KassaRij {
      *
      * @param klant Nieuwe kant in de rij.
      */
-    void sluitAchteraan(Dienblad klant) {
+    void sluitAchteraan(Persoon klant) {
         mensenInDeRij.add(klant);
     }
 
@@ -40,7 +40,7 @@ public class KassaRij {
      *
      * @return Eerste klant in de rij of null
      */
-    Dienblad eerstePersoonInRij() {
+    Persoon eerstePersoonInRij() {
         return mensenInDeRij.get(0);
     }
 
@@ -50,9 +50,6 @@ public class KassaRij {
      * @return Of er wel of geen rij bestaat
      */
     boolean erIsEenRij() {
-        if(mensenInDeRij.size() > 0) {
-            return true;
-        }
-        return false;
+        return mensenInDeRij.size() > 0;
     }
 }
