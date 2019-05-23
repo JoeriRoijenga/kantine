@@ -91,7 +91,7 @@ public class Kassa {
      * Het aantal producten over de toonbank aanpassen.
      * @param aantal Het nieuwe aantal producten.
      */
-    private void setAantal(int aantal) {
+    void setAantal(int aantal) {
         this.aantal = aantal;
     }
 
@@ -107,7 +107,7 @@ public class Kassa {
      * Het geld dat in de kassa zit aanpassen.
      * @param geld Het nieuwe bedrag dat in de kassa zit.
      */
-    private void setGeld(double geld) {
+    void setGeld(double geld) {
         this.geld = geld;
     }
 }

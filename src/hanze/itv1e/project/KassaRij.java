@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Joeri Roijenga & Niels de Vries.
  * @version 0.1 (13-05-2019)
  */
-public class KassaRij {
+class KassaRij {
 
     /**
      * Private array met alle klanten in de rij.
@@ -51,5 +51,12 @@ public class KassaRij {
      */
     boolean erIsEenRij() {
         return mensenInDeRij.size() > 0;
+    }
+
+    /**
+     * Verwijder de persoon die betaald heeft.
+     */
+    void verwijderPersoonInRij() {
+        mensenInDeRij.remove(0);
     }
 }
