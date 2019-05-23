@@ -179,7 +179,7 @@ public class Datum {
 	 *
 	 * @return Geboortedatum
 	 */
-	String getDatumAsString() {
+	public String toString() {
 		return getDag() + "-" + getMaand() + "-" + getJaar();
 	}
  }

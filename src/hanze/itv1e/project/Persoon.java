@@ -1,6 +1,8 @@
 package hanze.itv1e.project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Klasse Persoon
@@ -32,15 +34,23 @@ public class Persoon {
     private Datum geboorteDatum;
 
     /**
-     * Private geslacht in de vorm van een geslacht.
+     * Private geslacht types in de vorm van een map.
      */
-    private char geslacht;
+    private Map<String, String> geslachtTypes;
+
+    /**
+     * Private geslacht in de vorm van een int.
+     */
+    private String geslacht;
 
     /**
      * Private arraylist met de dienbladen.
      */
     private ArrayList<Dienblad> dienbladen;
 
+    /**
+     * private dienblad met het huidige dienblad dat in gebruik is.
+     */
     private Dienblad huidigDienblad;
 
     /**
@@ -57,6 +67,7 @@ public class Persoon {
         setVoornaam(voornaam);
         setAchternaam(achternaam);
         setGeboorteDatum(geboorteDatum);
+        vulGeslacht();
         setGeslacht(geslacht);
         this.dienbladen = new ArrayList<>();
     }
@@ -74,6 +85,18 @@ public class Persoon {
         setVoornaam(voornaam);
         setAchternaam(achternaam);
         setGeboorteDatum();
+        vulGeslacht();
+        setGeslacht("");
+    }
+
+    /**
+     * Het vullen van de geslachten mapping.
+     */
+    void vulGeslacht() {
+        geslachtTypes = new HashMap<>();
+        geslachtTypes.put("", "Onbekend");
+        geslachtTypes.put("M", "Man");
+        geslachtTypes.put("V", "Vrouw");
     }
 
     /**
@@ -129,7 +152,7 @@ public class Persoon {
      * @return De waarde van de geboortedatum.
      */
     private String getGeboorteDatum() {
-        return geboorteDatum.getDatumAsString();
+        return geboorteDatum.toString();
     }
 
     /**
@@ -152,16 +175,7 @@ public class Persoon {
      * @return De waarde van het geslacht.
      */
     private String getGeslacht() {
-        String geslacht = String.valueOf(this.geslacht);
-        String returnValue = "Onbekend";
-
-        if (geslacht.equals("M")) {
-            returnValue = "Man";
-        } else if (geslacht.equals("V")) {
-            returnValue = "Vrouw";
-        }
-
-        return returnValue;
+        return geslachtTypes.get(geslacht);
     }
 
     /**
@@ -169,11 +183,9 @@ public class Persoon {
      * @param geslacht De nieuwe waarde voor het geslacht.
      */
     private void setGeslacht(String geslacht) {
-        if (!geslacht.equals("M") && !geslacht.equals("V")) {
-            this.geslacht = "".charAt(0);
+        if (geslacht.equals("") || geslacht.equals("V") || geslacht.equals("M")) {
+            this.geslacht = geslacht;
         }
-
-        this.geslacht = geslacht.charAt(0);
     }
 
     /**
