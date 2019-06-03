@@ -23,7 +23,7 @@ public class KantineAanbod {
             ArrayList<Artikel> artikelen=new ArrayList<Artikel>();
             for(int j=0;j<hoeveelheid[i];j++) 
             {
-                //artikelen.add(new Artikel(artikelnaam[i], prijs[i]));
+                artikelen.add(new Artikel(artikelnaam[i], prijs[i]));
             }
             startVoorraad.put(artikelnaam[i], hoeveelheid[i]);
             prijzen.put(artikelnaam[i], prijs[i]);
@@ -38,7 +38,7 @@ public class KantineAanbod {
     	double prijs = prijzen.get(productnaam);
         for(int j=huidigeHoeveelheid;j<startHoeveelheid;j++) 
         {
-        	//huidigeVoorraad.add(new Artikel(productnaam, prijs));
+        	huidigeVoorraad.add(new Artikel(productnaam, prijs));
         }
         aanbod.put(productnaam, huidigeVoorraad);
     }
@@ -75,7 +75,7 @@ public class KantineAanbod {
     /**
      * Publieke methode om een artikel via naam van de stapel te pakken.
      * Retouneert null als artikel niet bestaat of niet op voorraad is.
-//     * @param naam (van artikel)
+     * @param productnaam (van artikel)
      * @return artikel (of null)
      */
     public Artikel getArtikel(String productnaam) {

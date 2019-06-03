@@ -87,6 +87,7 @@ public class Persoon {
         setGeboorteDatum();
         vulGeslacht();
         setGeslacht("");
+        this.dienbladen = new ArrayList<>();
     }
 
     /**

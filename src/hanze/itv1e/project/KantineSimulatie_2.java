@@ -1,5 +1,6 @@
 package hanze.itv1e.project;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class KantineSimulatie_2 {
@@ -49,7 +50,7 @@ public class KantineSimulatie_2 {
         kantineaanbod = new KantineAanbod(
             artikelnamen, artikelprijzen, hoeveelheden);
 
-        //kantine.setKantineAanbod(kantineaanbod);
+        kantine.setKantineAanbod(kantineaanbod);
     }
 
     /**
@@ -108,40 +109,50 @@ public class KantineSimulatie_2 {
      */
     public void simuleer(int dagen) {
         // for lus voor dagen
-//        for(int i = 0; i < dagen; i++) {
-//
-//            // bedenk hoeveel personen vandaag binnen lopen
-//            int aantalpersonen = ... ;
-//
-//            // laat de personen maar komen...
-//            for(int j = 0; j < aantalpersonen; j++) {
-//
-//                // maak persoon en dienblad aan, koppel ze
-//                // en bedenk hoeveel artikelen worden gepakt
-//                int aantalartikelen = ... ;
-//
-//                // genereer de "artikelnummers", dit zijn indexen
-//                // van de artikelnamen
-//                array int[] tepakken = getRandomArray(
-//                    aantalartikelen, 0, AANTAL_ARTIKELEN-1);
-//
-//                // vind de artikelnamen op basis van
-//                // de indexen hierboven
-//                String[] artikelen = geefArtikelNamen(tepakken);
-//
-//                // loop de kantine binnen, pak de gewenste
-//                // artikelen, sluit aan
-//
-//            }
+        for(int i = 0; i < dagen; i++) {
+
+            // bedenk hoeveel personen vandaag binnen lopen
+            int aantalpersonen = 8;
+
+            // laat de personen maar komen...
+            for(int j = 0; j < aantalpersonen; j++) {
+
+                // maak persoon en dienblad aan, koppel ze
+                // en bedenk hoeveel artikelen worden gepakt
+                Persoon persoon1 = new Persoon(748372947, "Test", "Tester");
+                persoon1.pakDienblad();
+                persoon1.kiesDienblad(1);
+
+                int aantalartikelen = 2;
+
+                // genereer de "artikelnummers", dit zijn indexen
+                // van de artikelnamen
+                int[] tepakken = getRandomArray(
+                    aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+
+                // vind de artikelnamen op basis van
+                // de indexen hierboven
+                String[] artikelen = geefArtikelNamen(tepakken);
+
+                // loop de kantine binnen, pak de gewenste
+                // artikelen, sluit aan
+                for (String artikelNaam : artikelen) {
+                    persoon1.voegArtikelToe(kantine.getKantineAanbod().getArtikel(artikelNaam));
+                }
+                kantine.loopPakSluitAan(persoon1);
+            }
 
             // verwerk rij voor de kassa
+            kantine.verwerkRijVoorKassa();
 
             // druk de dagtotalen af en hoeveel personen binnen
-
             // zijn gekomen
+            System.out.println("Geld in de kassa: " + kantine.hoeveelheidGeldInKassa());
+            System.out.println();
+            System.out.println("Aantal artikelen over de toonbank: " + kantine.aantalArtikelen());
 
             // reset de kassa voor de volgende dag
-
+            kantine.resetKassa();
         }
     }
-//}
+}

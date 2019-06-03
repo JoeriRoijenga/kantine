@@ -23,7 +23,7 @@ public class KantineSimulatie_1 {
 
         for (int i = 0; i < dagen; i++) {
             for (int j = 0; j < 10 + i; j++) {
-                kantine.loopPakSluitAan();
+                //kantine.loopPakSluitAan();
             }
             kantine.verwerkRijVoorKassa();
             System.out.println(kantine.aantalArtikelen());
@@ -37,7 +37,7 @@ public class KantineSimulatie_1 {
      * Start een simulatie
      */
     public static void main(String[] args) {
-        int dagen;
+        int dagen = 7;
 
         if (args.length == 0) {
             dagen = DAGEN;
@@ -45,6 +45,6 @@ public class KantineSimulatie_1 {
             dagen = Integer.parseInt(args[0]);
         }
 
-        //simulate(dagen);
+//       simuleer(dagen);
     }
 }

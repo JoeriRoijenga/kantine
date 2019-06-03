@@ -20,6 +20,11 @@ class Kantine {
     private KassaRij kassarij;
 
     /**
+     * Private kantine aanbod object met alle eigenschappen van het kantine aanbod.
+     */
+    private KantineAanbod kantineAanbod;
+
+    /**
      * Constructor
      */
     public Kantine() {
@@ -29,18 +34,10 @@ class Kantine {
 
     /**
      * Klant komt binnen, pakt een dienblad en gaat naar de kassa.
+     *
+     * @param persoon Klant
      */
-    public void loopPakSluitAan() {
-        Persoon persoon = new Persoon(748372947, "Test", "Tester", "13-05-2019", "V");
-        persoon.pakDienblad();
-        Dienblad dienblad = persoon.krijgDienblad();
-
-        Artikel artikel1 = new Artikel("Banaan", 1.99);
-        Artikel artikel2 = new Artikel("Peer", 1.20);
-
-        dienblad.voegToe(artikel1);
-        dienblad.voegToe(artikel2);
-
+    public void loopPakSluitAan(Persoon persoon) {
         kassarij.sluitAchteraan(persoon);
     }
 
@@ -79,5 +76,23 @@ class Kantine {
     public void resetKassa() {
         kassa.setGeld(0);
         kassa.setAantal(0);
+    }
+
+    /**
+     * Haalt het aanbod van de kantine op.
+     *
+     * @return kantineAanbod Het aanbod van de kantine.
+     */
+    public KantineAanbod getKantineAanbod() {
+        return kantineAanbod;
+    }
+
+    /**
+     * Zet een nieuw kantine aanbod.
+     *
+     * @param kantineAanbod Het nieuwe kantine aanbod.
+     */
+    public void setKantineAanbod(KantineAanbod kantineAanbod) {
+        this.kantineAanbod = kantineAanbod;
     }
 }

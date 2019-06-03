@@ -2,17 +2,21 @@ package hanze.itv1e.project;
 
 public class Test {
     public static void main(String[] args) {
-        Kantine kantine = new Kantine();
-        kantine.loopPakSluitAan();
-        kantine.loopPakSluitAan();
-        kantine.loopPakSluitAan();
+//        Kantine kantine = new Kantine();
+//        kantine.loopPakSluitAan();
+//        kantine.loopPakSluitAan();
+//        kantine.loopPakSluitAan();
+//
+//        kantine.verwerkRijVoorKassa();
+//        System.out.println(kantine.aantalArtikelen());
+//        System.out.println(kantine.hoeveelheidGeldInKassa());
+//        kantine.resetKassa();
+//        System.out.println(kantine.aantalArtikelen());
+//        System.out.println(kantine.hoeveelheidGeldInKassa());
 
-        kantine.verwerkRijVoorKassa();
-        System.out.println(kantine.aantalArtikelen());
-        System.out.println(kantine.hoeveelheidGeldInKassa());
-        kantine.resetKassa();
-        System.out.println(kantine.aantalArtikelen());
-        System.out.println(kantine.hoeveelheidGeldInKassa());
+        KantineSimulatie_2 simulator = new KantineSimulatie_2();
+
+        simulator.simuleer(3);
 
 //        System.out.println("-----------------");
 //        System.out.println("Personen maken");

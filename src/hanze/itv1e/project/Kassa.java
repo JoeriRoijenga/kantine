@@ -1,5 +1,8 @@
 package hanze.itv1e.project;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Klasse Dienblad
  *
@@ -44,6 +47,7 @@ public class Kassa {
 
         System.out.println("Aantal artikelen:" + dienblad.getAantalArtikelen());
         System.out.println("Te betalen: " + dienblad.getTotaalPrijs());
+        System.out.println();
         setAantal(getAantal() + dienblad.getAantalArtikelen());
         setGeld(getGeld() + dienblad.getTotaalPrijs());
 
@@ -100,7 +104,8 @@ public class Kassa {
      * @return geld
      */
     double getGeld() {
-        return geld;
+        BigDecimal bd = new BigDecimal(geld).setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     /**
