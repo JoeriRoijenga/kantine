@@ -2,7 +2,7 @@ package hanze.itv1e.project;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Klasse Dienblad
@@ -16,13 +16,13 @@ public class Dienblad {
     /**
      * Private array met alle artikelen op het dienblad.
      */
-    private ArrayList<Artikel> artikelen;
+    private Stack<Artikel> artikelen;
 
     /**
      * Contstuctor voor de klasse dienblad.
      */
     Dienblad() {
-        artikelen = new ArrayList<>();
+        artikelen = new Stack<>();
     }
 
     /**
@@ -31,7 +31,7 @@ public class Dienblad {
      * @param artikel
      */
     void voegToe(Artikel artikel) {
-        artikelen.add(artikel);
+        artikelen.push(artikel);
     }
 
     /**

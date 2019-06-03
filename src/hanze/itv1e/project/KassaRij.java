@@ -1,6 +1,6 @@
 package hanze.itv1e.project;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Klasse KassaRij
@@ -15,13 +15,13 @@ class KassaRij {
     /**
      * Private array met alle klanten in de rij.
      */
-    private ArrayList<Persoon> mensenInDeRij;
+    private LinkedList<Persoon> mensenInDeRij;
 
     /**
      * Constructor
      */
     KassaRij() {
-        mensenInDeRij = new ArrayList<>();
+        mensenInDeRij = new LinkedList<>();
     }
 
     /**
@@ -41,7 +41,7 @@ class KassaRij {
      * @return Eerste klant in de rij of null
      */
     Persoon eerstePersoonInRij() {
-        return mensenInDeRij.get(0);
+        return mensenInDeRij.getFirst();
     }
 
     /**
@@ -57,6 +57,6 @@ class KassaRij {
      * Verwijder de persoon die betaald heeft.
      */
     void verwijderPersoonInRij() {
-        mensenInDeRij.remove(0);
+        mensenInDeRij.removeFirst();
     }
 }
