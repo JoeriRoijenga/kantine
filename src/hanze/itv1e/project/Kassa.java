@@ -2,6 +2,7 @@ package hanze.itv1e.project;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.*;
 
 /**
  * Klasse Dienblad
@@ -44,14 +45,28 @@ public class Kassa {
      */
     void rekenAf(Persoon klant) {
         Dienblad dienblad = klant.krijgDienblad();
+        double prijs = berekenPrijs(dienblad.getArtikelen());
 
         System.out.println("Aantal artikelen:" + dienblad.getAantalArtikelen());
-        System.out.println("Te betalen: " + dienblad.getTotaalPrijs());
+        System.out.println("Te betalen: " + prijs);
         System.out.println();
         setAantal(getAantal() + dienblad.getAantalArtikelen());
-        setGeld(getGeld() + dienblad.getTotaalPrijs());
+        setGeld(getGeld() + prijs);
 
         klant.verwijderDienblad();
+    }
+
+    double berekenPrijs(Iterator artikelen) {
+        double prijs = 0;
+
+        while (artikelen.hasNext()) {
+            Artikel artikel = (Artikel) artikelen.next();
+            prijs += artikel.getPrijs();
+        }
+
+        BigDecimal bd = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
+
+        return bd.doubleValue();
     }
 
     /**

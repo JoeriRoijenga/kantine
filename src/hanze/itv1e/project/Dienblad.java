@@ -1,7 +1,5 @@
 package hanze.itv1e.project;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.*;
 
 /**
@@ -44,20 +42,11 @@ public class Dienblad {
     }
 
     /**
-     * Methode om de totaalprijs van de artikelen
-     * op dienblad uit te rekenen
      *
-     * @return De totaalprijs
+     * @return
      */
-    double getTotaalPrijs() {
-        double prijs = 0;
-
-        for (Artikel artikel : artikelen) {
-            prijs += artikel.getPrijs();
-        }
-
-        BigDecimal bd = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+    Iterator<Artikel> getArtikelen() {
+        return artikelen.iterator();
     }
 }
 

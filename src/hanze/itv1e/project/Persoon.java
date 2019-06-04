@@ -229,14 +229,6 @@ public class Persoon {
     }
 
     /**
-     * Totaal prijs voor de artikelen op het dienblad.
-     * @return double met de totaal prijs.
-     */
-    double prijsDienblad() {
-        return huidigDienblad.getTotaalPrijs();
-    }
-
-    /**
      * Haal het huidige dienblad op.
      * @return het huidige dienblad.
      */

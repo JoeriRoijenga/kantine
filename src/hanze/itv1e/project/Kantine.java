@@ -95,4 +95,8 @@ class Kantine {
     public void setKantineAanbod(KantineAanbod kantineAanbod) {
         this.kantineAanbod = kantineAanbod;
     }
+
+    public Kassa getKassa() {
+        return kassa;
+    }
 }

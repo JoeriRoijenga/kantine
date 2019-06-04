@@ -38,7 +38,6 @@ public class KantineSimulatie_2 {
 
     /**
      * Constructor
-     *
      */
     public KantineSimulatie_2() {
         kantine = new Kantine();
