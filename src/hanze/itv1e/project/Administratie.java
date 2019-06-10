@@ -1,6 +1,7 @@
 package hanze.itv1e.project;
 
-public class Administratie {
+class Administratie {
+    static final int DAYS_IN_WEEK = 7;
 
     /**
      * Deze methode berekent van de int array aantal de gemiddelde waarde
@@ -8,16 +9,14 @@ public class Administratie {
      * @param aantal
      * @return het gemiddelde
      */
-    public double berekenGemiddeldAantal(int[] aantal) {
+    static double berekenGemiddeldAantal(int[] aantal) {
         double total = 0;
 
         for (int i = 0; i < aantal.length ; i++) {
             total = total + aantal[i];
-
         }
-        double avg;
-        avg = total / aantal.length;
-        return avg;
+
+        return total / aantal.length;
     }
 
     /**
@@ -26,15 +25,14 @@ public class Administratie {
      * @param omzet
      * @return het gemiddelde
      */
-    public double berekenGemiddeldeOmzet(double[] omzet) {
+    static double berekenGemiddeldeOmzet(double[] omzet) {
         double total = 0;
 
         for (int i = 0; i < omzet.length; i++) {
             total = total + omzet[i];
         }
-        double avg;
-        avg = total / omzet.length;
-        return avg;
+
+        return total / omzet.length;
     }
 
     /**
@@ -43,18 +41,21 @@ public class Administratie {
      * @param omzet
      * @return array (7 elementen) met dagomzetten
      */
-
-    public static double[] berekenDagOmzet(double[] omzet) {
+    static double[] berekenDagOmzet(double[] omzet) {
         double[] temp = new double[7];
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < DAYS_IN_WEEK; i++) {
 
             int j = 0;
-//            while( ... ) {
-//                temp[i] += omzet[i + 7 * j];
-//
-//                // omitted
-//
-//            }
+
+            try {
+                while(j < 2) {
+                    temp[i] += omzet[i + 7 * j];
+                    j++;
+                }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("ArrayIndexOutOfBoundsException");
+            }
+
         }
         return temp;
     }

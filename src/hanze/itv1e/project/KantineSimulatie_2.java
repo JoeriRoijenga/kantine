@@ -1,6 +1,5 @@
 package hanze.itv1e.project;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class KantineSimulatie_2 {
@@ -25,8 +24,8 @@ public class KantineSimulatie_2 {
     private static double[] artikelprijzen = new double[]{1.50, 2.10, 1.65, 1.65};
 
     // minimum en maximum aantal artikelen per soort
-    private static final int MIN_ARTIKELEN_PER_SOORT = 10000;
-    private static final int MAX_ARTIKELEN_PER_SOORT = 20000;
+    private static final int MIN_ARTIKELEN_PER_SOORT = 10;
+    private static final int MAX_ARTIKELEN_PER_SOORT = 20;
 
     // minimum en maximum aantal personen per dag
     private static final int MIN_PERSONEN_PER_DAG = 50;
@@ -122,7 +121,7 @@ public class KantineSimulatie_2 {
                 persoon1.pakDienblad();
                 persoon1.kiesDienblad(1);
 
-                int aantalartikelen = 2;
+                int aantalartikelen = 4;
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
