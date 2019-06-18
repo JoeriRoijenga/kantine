@@ -22,8 +22,8 @@ public class Student extends Persoon {
      * @param geboorteDatum Geboorte datum van de student
      * @param geslacht Geslacht van de student
      */
-    public Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht) {
-        super(BSN, voornaam, achternaam, geboorteDatum, geslacht);
+    public Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
+        super(BSN, voornaam, achternaam, geboorteDatum, geslacht, betaalwijze);
     }
 
     /**
@@ -35,8 +35,8 @@ public class Student extends Persoon {
      * @param voornaam Voornaam van de student
      * @param achternaam Achternaam van de student
      */
-    public Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam) {
-        super(BSN, voornaam, achternaam);
+    public Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, int betaalwijze) {
+        super(BSN, voornaam, achternaam, betaalwijze);
     }
 
     /**

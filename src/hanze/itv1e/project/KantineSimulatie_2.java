@@ -159,11 +159,11 @@ public class KantineSimulatie_2 {
         Persoon persoon;
 
         if (a >= 0 && a <= 9) {
-            persoon = new Docent("3", "a", 723, "Test", "testus");
+            persoon = new Docent("3", "a", 723, "Test", "testus", 1);
         } else if (a >= 10 && a <= 98 ) {
-            persoon = new Student(33, "NSE", 724, "Testi", "Testus");
+            persoon = new Student(33, "NSE", 724, "Testi", "Testus", 1);
         } else {
-            persoon = new KantineMedewerker(22, true, 725, "Berta", "Bertus");
+            persoon = new KantineMedewerker(22, true, 725, "Berta", "Bertus", 0);
         }
 
 

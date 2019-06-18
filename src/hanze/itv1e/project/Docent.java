@@ -30,8 +30,8 @@ public class Docent extends Persoon {
      * @param geboorteDatum Geboorte datum van de docent
      * @param geslacht Geslacht van de docent
      */
-    Docent(String docentCode, String afdeling, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht) {
-        super(BSN, voornaam, achternaam, geboorteDatum, geslacht);
+    Docent(String docentCode, String afdeling, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
+        super(BSN, voornaam, achternaam, geboorteDatum, geslacht, betaalwijze);
         setAfdeling(afdeling);
         setDocentCode(docentCode);
     }
@@ -45,8 +45,8 @@ public class Docent extends Persoon {
      * @param voornaam Voornaam van de docent
      * @param achternaam Achternaam van de docent
      */
-    Docent(String docentCode, String afdeling, int BSN, String voornaam, String achternaam) {
-        super(BSN, voornaam, achternaam);
+    Docent(String docentCode, String afdeling, int BSN, String voornaam, String achternaam, int betaalwijze) {
+        super(BSN, voornaam, achternaam, betaalwijze);
         setAfdeling(afdeling);
         setDocentCode(docentCode);
     }
