@@ -110,7 +110,7 @@ public class KantineSimulatie_2 {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 8;
+            int aantalpersonen = 100;
 
             // laat de personen maar komen...
             for(int j = 0; j < aantalpersonen; j++) {
@@ -145,6 +145,7 @@ public class KantineSimulatie_2 {
 
             // druk de dagtotalen af en hoeveel personen binnen
             // zijn gekomen
+            System.out.println();
             System.out.println("Geld in de kassa: " + kantine.hoeveelheidGeldInKassa());
             System.out.println();
             System.out.println("Aantal artikelen over de toonbank: " + kantine.aantalArtikelen());

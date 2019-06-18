@@ -1,6 +1,6 @@
 package hanze.itv1e.project;
 
-public class KantineMedewerker extends Persoon {
+public class KantineMedewerker extends Persoon implements KortingskaartHouder {
     public double medewerkerNummer;
     public boolean kassaBevoegd;
 
@@ -50,5 +50,20 @@ public class KantineMedewerker extends Persoon {
 
     private void setMedewerkerNummer(double medewerkerNummer) {
         this.medewerkerNummer = medewerkerNummer;
+    }
+
+    @Override
+    public double geefKortingsPercentage() {
+        return 30;
+    }
+
+    @Override
+    public boolean heeftMaximum() {
+        return false;
+    }
+
+    @Override
+    public double geefMaximum() {
+        return 0;
     }
 }

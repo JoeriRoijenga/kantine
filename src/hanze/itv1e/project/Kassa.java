@@ -54,13 +54,48 @@ public class Kassa {
         setGeld(getGeld() + prijs);
 
         Betaalwijze betaalwijze = klant.getBetaalwijze();
-        if (betaalwijze.betaal(prijs)) {
+        double korting = korting(prijs, klant);
+
+        System.out.println("Gekregen korting: " + korting);
+
+        if (betaalwijze.betaal(prijs - korting)) {
             System.out.println("Betaald!");
         } else {
             System.out.println("Er is iets mis gegaan met betalen!");
         }
 
         klant.verwijderDienblad();
+    }
+
+    /**
+     * Berekenen van de korting
+     * @param prijs De te betalen prijs
+     * @param klant De klant
+     * @return De te krijgen korting
+     */
+    double korting(double prijs, Persoon klant) {
+        double percentage = 0;
+        double korting;
+        boolean heeftMaximum = false;
+        double maximum = 0;
+
+        if (klant instanceof Docent) {
+            percentage = ((Docent) klant).geefKortingsPercentage();
+            heeftMaximum = ((Docent) klant).heeftMaximum();
+            maximum = ((Docent) klant).geefMaximum();
+        } else if (klant instanceof KantineMedewerker) {
+            percentage = ((KantineMedewerker) klant).geefKortingsPercentage();
+            heeftMaximum = ((KantineMedewerker) klant).heeftMaximum();
+            maximum = ((KantineMedewerker) klant).geefMaximum();
+        }
+
+        korting = prijs * (percentage / 100);
+
+        if (korting > maximum && heeftMaximum) {
+            korting = maximum;
+        }
+
+        return korting;
     }
 
     double berekenPrijs(Iterator artikelen) {

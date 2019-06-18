@@ -8,7 +8,7 @@ package hanze.itv1e.project;
  * @author Joeri Roijenga & Niels de Vries.
  * @version 0.1 (13-05-2019)
  */
-public class Docent extends Persoon {
+public class Docent extends Persoon implements KortingskaartHouder {
     /**
      * String met de docent code.
      */
@@ -85,5 +85,20 @@ public class Docent extends Persoon {
      */
     private void setDocentCode(String docentCode) {
         this.docentCode = docentCode;
+    }
+
+    @Override
+    public double geefKortingsPercentage() {
+        return 20;
+    }
+
+    @Override
+    public boolean heeftMaximum() {
+        return true;
+    }
+
+    @Override
+    public double geefMaximum() {
+        return 10;
     }
 }
