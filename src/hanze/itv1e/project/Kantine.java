@@ -96,6 +96,11 @@ class Kantine {
         this.kantineAanbod = kantineAanbod;
     }
 
+    /**
+     * Het ophalen van de huidige kassa.
+     *
+     * @return kassa
+     */
     public Kassa getKassa() {
         return kassa;
     }

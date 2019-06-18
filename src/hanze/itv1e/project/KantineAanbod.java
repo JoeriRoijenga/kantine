@@ -2,10 +2,22 @@ package hanze.itv1e.project;
 
 import java.util.*;
 
-public class KantineAanbod {
-    // interne opslag voorraad
+/**
+ * Klasse Kantineaanbod
+ *
+ * Deze klasse beheert alle eigenschappen van het kantine aanbod.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
+class KantineAanbod {
+    /**
+     *
+     */
     private HashMap<String, ArrayList<Artikel>> aanbod;
+
     private HashMap<String, Integer> startVoorraad;
+
     private HashMap<String, Double> prijzen;
     
     /**

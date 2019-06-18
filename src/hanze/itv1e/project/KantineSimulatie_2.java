@@ -117,9 +117,9 @@ public class KantineSimulatie_2 {
 
                 // maak persoon en dienblad aan, koppel ze
                 // en bedenk hoeveel artikelen worden gepakt
-                Persoon persoon1 = new Persoon(748372947, "Test", "Tester");
-                persoon1.pakDienblad();
-                persoon1.kiesDienblad(1);
+                Persoon persoon = makenPersoon();//new Docent("3", "asfasdf",748372947, "Test", "Tester");
+                persoon.pakDienblad();
+                persoon.kiesDienblad(1);
 
                 int aantalartikelen = 4;
 
@@ -135,9 +135,9 @@ public class KantineSimulatie_2 {
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
                 for (String artikelNaam : artikelen) {
-                    persoon1.voegArtikelToe(kantine.getKantineAanbod().getArtikel(artikelNaam));
+                    persoon.voegArtikelToe(kantine.getKantineAanbod().getArtikel(artikelNaam));
                 }
-                kantine.loopPakSluitAan(persoon1);
+                kantine.loopPakSluitAan(persoon);
             }
 
             // verwerk rij voor de kassa
@@ -152,5 +152,18 @@ public class KantineSimulatie_2 {
             // reset de kassa voor de volgende dag
             kantine.resetKassa();
         }
+    }
+
+    Persoon makenPersoon() {
+        int a = random.nextInt(100);
+        Persoon persoon;
+
+        if (a == 1) {
+            persoon = new KantineMedewerker();
+        } else if () {
+            persoon = new Docent();
+        }
+
+        return persoon;
     }
 }
