@@ -33,21 +33,33 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder {
     }
 
     /**
-     *
-     * @return
+     * returns de kassabevoegdheid van de medewerker
+     * @return kassabevoegdheid
      */
     private boolean getKassaBevoegd() {
         return kassaBevoegd;
     }
 
+    /**
+     * set de kassabevoegdheid van de medewerker
+     * @param kassaBevoegd kassabevoegdheid
+     */
     private void setKassaBevoegd(boolean kassaBevoegd) {
         this.kassaBevoegd = kassaBevoegd;
     }
 
+    /**
+     * returns het nummer van de medewerker
+     * @return medewerkernummer
+     */
     private double getMedewerkerNummer() {
         return medewerkerNummer;
     }
 
+    /**
+     * zet het medewerkernummer
+     * @param medewerkerNummer nummer van de medewerker
+     */
     private void setMedewerkerNummer(double medewerkerNummer) {
         this.medewerkerNummer = medewerkerNummer;
     }
