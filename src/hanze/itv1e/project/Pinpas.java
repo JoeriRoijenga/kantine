@@ -1,9 +1,25 @@
 package hanze.itv1e.project;
 
+/**
+ * Klasse Pinpas
+ *
+ * Deze klasse beheert alle eigenschappen van de pinpas.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class Pinpas extends Betaalwijze {
-
+    /**
+     * Het ingestelde kredietlimiet.
+     */
     private double kredietlimiet;
 
+    /**
+     * Constructor
+     *
+     * @param saldo Het in te stellen saldo.
+     * @param kredietlimiet Het in te stellen kreditlimiet.
+     */
     Pinpas(double saldo, double kredietlimiet) {
         setSaldo(saldo);
         setKredietLimiet(kredietlimiet);
@@ -11,14 +27,16 @@ public class Pinpas extends Betaalwijze {
 
     /**
      * Methode om kredietlimiet te zetten
-     * @param kredietlimiet
+     * @param kredietlimiet Het nieuwe limiet.
      */
-    public void setKredietLimiet(double kredietlimiet) {
+    private void setKredietLimiet(double kredietlimiet) {
         this.kredietlimiet = kredietlimiet;
     }
 
     /**
      * Methode om betaling af te handelen
+     *
+     * @param tebetalen Het te betalen bedrag.
      */
     public void betaal(double tebetalen) {
         double nieuwSaldo = saldo - tebetalen;
@@ -27,6 +45,7 @@ public class Pinpas extends Betaalwijze {
                 throw new TeWeinigGeldException("");
             }
             setSaldo(nieuwSaldo);
+            System.out.println("Betaald pinpas");
         } catch (TeWeinigGeldException e) {
             System.out.println("Te weinig geld");
         }

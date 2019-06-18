@@ -87,16 +87,28 @@ public class Docent extends Persoon implements KortingskaartHouder {
         this.docentCode = docentCode;
     }
 
+    /**
+     * Geeft de korting terug.
+     * @return Het kortingspercentage
+     */
     @Override
     public double geefKortingsPercentage() {
         return 20;
     }
 
+    /**
+     * Geeft aan of er een maximum is bij de korting.
+     * @return Geeft een true of false terug.
+     */
     @Override
     public boolean heeftMaximum() {
         return true;
     }
 
+    /**
+     * Geeft het maximum aan korting aan.
+     * @return Het maximum van de korting.
+     */
     @Override
     public double geefMaximum() {
         return 10;

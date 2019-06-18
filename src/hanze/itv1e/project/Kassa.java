@@ -58,11 +58,7 @@ public class Kassa {
 
         System.out.println("Gekregen korting: " + korting);
 
-        if (betaalwijze.betaal(prijs - korting)) {
-            System.out.println("Betaald!");
-        } else {
-            System.out.println("Er is iets mis gegaan met betalen!");
-        }
+        betaalwijze.betaal(prijs - korting);
 
         klant.verwijderDienblad();
     }
@@ -98,6 +94,11 @@ public class Kassa {
         return korting;
     }
 
+    /**
+     * Het laten berekenen van de prijs.
+     * @param artikelen Een iterator met de prijs.
+     * @return Een prijs in de vorm van een double.
+     */
     double berekenPrijs(Iterator artikelen) {
         double prijs = 0;
 

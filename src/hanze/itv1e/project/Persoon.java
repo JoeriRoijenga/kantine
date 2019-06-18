@@ -263,10 +263,20 @@ public class Persoon {
         return "Naam: " + getVoornaam() + " " + getAchternaam() + " BSN: " + getBSN() + " Geboortedatum: " + getGeboorteDatum() + " geslacht: " + getGeslacht();
     }
 
-    public Betaalwijze getBetaalwijze() {
+    /**
+     * Geeft de betaalwijze terug.
+     *
+     * @return Betaalwijze
+     */
+    Betaalwijze getBetaalwijze() {
         return betaalwijze;
     }
 
+    /**
+     * Het zetten van de nieuwe betaalwijze.
+     *
+     * @param betaalwijze De nieuwe betaalwijze.
+     */
     private void setBetaalwijze(int betaalwijze) {
         if (betaalwijze == 0) {
             this.betaalwijze = new Contant(40);

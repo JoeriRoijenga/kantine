@@ -12,19 +12,29 @@ import java.util.*;
  */
 class KantineAanbod {
     /**
-     *
+     *  Een private hashmap met een naam en arraylist van artikelen.
      */
     private HashMap<String, ArrayList<Artikel>> aanbod;
 
+    /**
+     *  Een private hashmap met een naam en integer.
+     */
     private HashMap<String, Integer> startVoorraad;
 
+    /**
+     *  Een private hashmap met een naam en double.
+     */
     private HashMap<String, Double> prijzen;
-    
+
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen,
      * het tweede argument is een lijst met prijzen en het derde argument
      * is een lijst met hoeveelheden. Let op: de dimensies van de drie arrays
      * moeten wel gelijk zijn!
+     *
+     * @param artikelnaam Artikel naam
+     * @param prijs Prijs van het artikel
+     * @param hoeveelheid Hoeveelheid van de artikelen.
      */
     public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
         aanbod=new HashMap<String, ArrayList<Artikel>>();
@@ -43,6 +53,11 @@ class KantineAanbod {
         }
     }
 
+    /**
+     * Deze methode vult de voorraad weer aan.
+     *
+     * @param productnaam Product waarvan de voorraad aangevuld moet worden.
+     */
     private void vulVoorraadAan(String productnaam){
     	ArrayList<Artikel> huidigeVoorraad = aanbod.get(productnaam);
     	int startHoeveelheid = startVoorraad.get(productnaam);
@@ -54,10 +69,13 @@ class KantineAanbod {
         }
         aanbod.put(productnaam, huidigeVoorraad);
     }
-    
-    /*
-     * Private methode om de lijst van artikelen te krijgen op basis van de    
+
+    /**
+     * Private methode om de lijst van artikelen te krijgen op basis van de
      * naam van het artikel. Retourneert null als artikel niet bestaat.
+     *
+     * @param productnaam Product naam
+     * @return geeft het aanbod van het product terug.
      */
     private ArrayList<Artikel> getArrayList(String productnaam) {
          return aanbod.get(productnaam); 

@@ -1,15 +1,23 @@
 package hanze.itv1e.project;
 
+/**
+ * Klasse Student
+ *
+ * Deze klasse beheert alle eigenschappen van de student.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class Student extends Persoon {
 
     /**
      * Studentnummer als getal
      */
-    public double studentNummer;
+    private double studentNummer;
     /**
      * String met studierichting
      */
-    public String studieRichting;
+    private String studieRichting;
 
     /**
      * Constructor
@@ -22,7 +30,7 @@ public class Student extends Persoon {
      * @param geboorteDatum Geboorte datum van de student
      * @param geslacht Geslacht van de student
      */
-    public Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
+    Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
         super(BSN, voornaam, achternaam, geboorteDatum, geslacht, betaalwijze);
     }
 
@@ -35,7 +43,7 @@ public class Student extends Persoon {
      * @param voornaam Voornaam van de student
      * @param achternaam Achternaam van de student
      */
-    public Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, int betaalwijze) {
+    Student(double studentNummer, String studieRichting, int BSN, String voornaam, String achternaam, int betaalwijze) {
         super(BSN, voornaam, achternaam, betaalwijze);
     }
 

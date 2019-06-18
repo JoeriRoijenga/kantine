@@ -2,6 +2,14 @@ package hanze.itv1e.project;
 
 import java.util.*;
 
+/**
+ * Klasse Kantinesimulator_2
+ *
+ * Deze klasse beheert alle eigenschappen van de kantinesimulator versie 2.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class KantineSimulatie_2 {
 
     // kantine
@@ -155,6 +163,10 @@ public class KantineSimulatie_2 {
         }
     }
 
+    /**
+     * Het maken van een persoon voor de simulator.
+     * @return nieuw persoon
+     */
     Persoon makenPersoon() {
         int a = random.nextInt(100);
         Persoon persoon;

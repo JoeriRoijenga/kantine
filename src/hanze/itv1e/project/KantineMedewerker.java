@@ -1,8 +1,23 @@
 package hanze.itv1e.project;
 
+/**
+ * Klasse KantineMedewerker
+ *
+ * Deze klasse beheert alle eigenschappen van de kantine medewerker.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 public class KantineMedewerker extends Persoon implements KortingskaartHouder {
-    public double medewerkerNummer;
-    public boolean kassaBevoegd;
+    /**
+     * Code van de medewerker.
+     */
+    private double medewerkerNummer;
+
+    /**
+     * Is de medewerker bevoegd voor de kassa.
+     */
+    private boolean kassaBevoegd;
 
     /**
      * Constructor
@@ -64,16 +79,28 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder {
         this.medewerkerNummer = medewerkerNummer;
     }
 
+    /**
+     * Geeft de korting terug.
+     * @return Het kortingspercentage
+     */
     @Override
     public double geefKortingsPercentage() {
         return 30;
     }
 
+    /**
+     * Geeft aan of er een maximum is bij de korting.
+     * @return Geeft een true of false terug.
+     */
     @Override
     public boolean heeftMaximum() {
         return false;
     }
 
+    /**
+     * Geeft het maximum aan korting aan.
+     * @return Het maximum van de korting.
+     */
     @Override
     public double geefMaximum() {
         return 0;
