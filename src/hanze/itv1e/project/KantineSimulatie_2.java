@@ -158,11 +158,14 @@ public class KantineSimulatie_2 {
         int a = random.nextInt(100);
         Persoon persoon;
 
-        if (a == 1) {
-            persoon = new KantineMedewerker();
-        } else if () {
-            persoon = new Docent();
+        if (a >= 0 && a <= 9) {
+            persoon = new Docent("3", "a", 723, "Test", "testus");
+        } else if (a >= 10 && a <= 98 ) {
+            persoon = new Student(33, "NSE", 724, "Testi", "Testus");
+        } else {
+            persoon = new KantineMedewerker(22, true, 725, "Berta", "Bertus");
         }
+
 
         return persoon;
     }
