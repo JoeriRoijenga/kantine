@@ -1,6 +1,17 @@
 package hanze.itv1e.project;
 
+/**
+ * Klasse Administratie
+ *
+ * Deze klasse beheert alle eigenschappen van de administratie.
+ *
+ * @author Joeri Roijenga & Niels de Vries.
+ * @version 0.1 (13-05-2019)
+ */
 class Administratie {
+    /**
+     * static final int met de dagen van de week.
+     */
     static final int DAYS_IN_WEEK = 7;
 
     /**
