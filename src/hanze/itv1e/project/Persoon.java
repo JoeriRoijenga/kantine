@@ -49,9 +49,14 @@ public class Persoon {
     private ArrayList<Dienblad> dienbladen;
 
     /**
-     * private dienblad met het huidige dienblad dat in gebruik is.
+     * Private dienblad met het huidige dienblad dat in gebruik is.
      */
     private Dienblad huidigDienblad;
+
+    /**
+     * Private betaalwijze hoe je wil betalen.
+     */
+    private Betaalwijze betaalwijze;
 
     /**
      * Contructor voor de klasse Persoon.
@@ -62,7 +67,7 @@ public class Persoon {
      * @param geboorteDatum De geboortedatum voor een nieuw persoon.
      * @param geslacht Het geslacht voor een nieuw persoon.
      */
-    Persoon(int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht) {
+    Persoon(int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
         setBSN(BSN);
         setVoornaam(voornaam);
         setAchternaam(achternaam);
@@ -70,6 +75,7 @@ public class Persoon {
         vulGeslacht();
         setGeslacht(geslacht);
         this.dienbladen = new ArrayList<>();
+        setBetaalwijze(betaalwijze);
     }
 
     /**
@@ -78,8 +84,9 @@ public class Persoon {
      * @param BSN Het BSN voor een nieuw persoon.
      * @param voornaam De voornaam voor een nieuw persoon.
      * @param achternaam De achternaam voor een nieuw persoon.
+     * @param betaalwijze De betaalwijze voor een nieuw persoon.
      */
-    Persoon(int BSN, String voornaam, String achternaam) {
+    Persoon(int BSN, String voornaam, String achternaam, int betaalwijze) {
         // Initialisatie
         setBSN(BSN);
         setVoornaam(voornaam);
@@ -88,6 +95,7 @@ public class Persoon {
         vulGeslacht();
         setGeslacht("");
         this.dienbladen = new ArrayList<>();
+        setBetaalwijze(betaalwijze);
     }
 
     /**
@@ -253,5 +261,17 @@ public class Persoon {
      */
     public String toString() {
         return "Naam: " + getVoornaam() + " " + getAchternaam() + " BSN: " + getBSN() + " Geboortedatum: " + getGeboorteDatum() + " geslacht: " + getGeslacht();
+    }
+
+    public Betaalwijze getBetaalwijze() {
+        return betaalwijze;
+    }
+
+    private void setBetaalwijze(int betaalwijze) {
+        if (betaalwijze == 0) {
+            this.betaalwijze = new Contant(40);
+        } else if (betaalwijze == 1) {
+            this.betaalwijze = new Pinpas(40, 10);
+        }
     }
 }

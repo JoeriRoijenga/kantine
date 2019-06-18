@@ -53,6 +53,13 @@ public class Kassa {
         setAantal(getAantal() + dienblad.getAantalArtikelen());
         setGeld(getGeld() + prijs);
 
+        Betaalwijze betaalwijze = klant.getBetaalwijze();
+        if (betaalwijze.betaal(prijs)) {
+            System.out.println("Betaald!");
+        } else {
+            System.out.println("Er is iets mis gegaan met betalen!");
+        }
+
         klant.verwijderDienblad();
     }
 
