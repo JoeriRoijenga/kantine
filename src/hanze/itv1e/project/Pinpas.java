@@ -20,15 +20,15 @@ public class Pinpas extends Betaalwijze {
     /**
      * Methode om betaling af te handelen
      */
-    public boolean betaal(double tebetalen) {
+    public void betaal(double tebetalen) {
         double nieuwSaldo = saldo - tebetalen;
-
-        if (nieuwSaldo < 0 || tebetalen > kredietlimiet) {
-            return false;
+        try {
+            if (nieuwSaldo < 0 || tebetalen > kredietlimiet) {
+                throw new TeWeinigGeldException("");
+            }
+            setSaldo(nieuwSaldo);
+        } catch (TeWeinigGeldException e) {
+            System.out.println("Te weinig geld");
         }
-
-        setSaldo(nieuwSaldo);
-
-        return true;
     }
 }
