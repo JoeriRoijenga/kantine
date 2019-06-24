@@ -230,7 +230,7 @@ public class KantineSimulatie_2 {
 
     void ResultaatHoogsteDrie() {
         Query query = manager.createQuery(
-                "SELECT f.totaal FROM Factuur f ORDER BY totaal DESC LIMIT 3");
+                "SELECT f.totaal FROM Factuur f ORDER BY totaal DESC").setMaxResults(3);
         List<Object[]> resultList = query.getResultList();
 
         for(int a = 0; a <= (resultList.size() - 1); a++) {

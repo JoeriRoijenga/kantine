@@ -6,7 +6,7 @@ public class Test {
 
 //        simulator.ResultaatGemiddelde();
 //        simulator.ResultaatGemiddeldeKorting();
-//        simulator.ResultaatHoogsteDrie();
+        simulator.ResultaatHoogsteDrie();
 
         simulator.sluitConnectie();
 
