@@ -4,7 +4,11 @@ public class Test {
     public static void main(String[] args) {
         KantineSimulatie_2 simulator = new KantineSimulatie_2();
 
-        simulator.runVoorbeeld();
+//        simulator.ResultaatGemiddelde();
+//        simulator.ResultaatGemiddeldeKorting();
+//        simulator.ResultaatHoogsteDrie();
+
+        simulator.sluitConnectie();
 
         //Administratie ad = new Administratie();
 //        int[] a = {45, 56, 34, 39, 40, 31};

@@ -113,7 +113,7 @@ public class Persoon {
      * Het ophalen van het BSN.
      * @return De waarde van het BSN.
      */
-    private int getBSN() {
+    int getBSN() {
         return BSN;
     }
 

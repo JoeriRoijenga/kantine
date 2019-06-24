@@ -10,7 +10,7 @@ public class KantineSimulatie_1 {
      * Constructor
      */
     public KantineSimulatie_1() {
-        kantine = new Kantine();
+        //kantine = new Kantine();
     }
 
     /**

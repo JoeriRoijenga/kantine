@@ -38,16 +38,14 @@ public class Pinpas extends Betaalwijze {
      *
      * @param tebetalen Het te betalen bedrag.
      */
-    public void betaal(double tebetalen) {
+    public void betaal(double tebetalen) throws TeWeinigGeldException {
         double nieuwSaldo = saldo - tebetalen;
-        try {
-            if (nieuwSaldo < 0 || tebetalen > kredietlimiet) {
-                throw new TeWeinigGeldException("");
-            }
-            setSaldo(nieuwSaldo);
-            System.out.println("Betaald pinpas");
-        } catch (TeWeinigGeldException e) {
-            System.out.println("Te weinig geld");
+
+        if (nieuwSaldo < 0 || tebetalen > kredietlimiet) {
+            throw new TeWeinigGeldException("");
         }
+
+        setSaldo(nieuwSaldo);
+        System.out.println("Betaald pinpas");
     }
 }

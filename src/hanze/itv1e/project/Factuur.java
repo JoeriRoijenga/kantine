@@ -1,17 +1,34 @@
 package hanze.itv1e.project;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@Entity
+@Table(name = "factuur")
 public class Factuur implements Serializable {
+    @Id
+    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "datum")
     private LocalDate datum;
+
+    @Column(name = "korting")
     private double korting;
+
+    @Column(name = "totaal")
     private double totaal;
+
+    @Column(name = "aantal")
     private int aantal;
+
+    @Column(name = "BSN")
+    private int BSN;
 
     public Factuur() {
         totaal = 0;
@@ -21,6 +38,7 @@ public class Factuur implements Serializable {
     public Factuur(Persoon klant, LocalDate datum) {
         this();
         this.datum = datum;
+        this.BSN = klant.getBSN();
         verwerkBestelling(klant);
     }
 

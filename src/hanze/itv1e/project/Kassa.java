@@ -1,9 +1,10 @@
 package hanze.itv1e.project;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.*;
 
 /**
  * Klasse Dienblad
@@ -24,6 +25,8 @@ public class Kassa {
      */
     private double geld;
 
+    private EntityManager manager;
+
     /**
      * Private kassarij met alle klanten.
      */
@@ -32,8 +35,9 @@ public class Kassa {
     /**
      * Constructor
      */
-    Kassa(KassaRij kassarij) {
+    Kassa(KassaRij kassarij, EntityManager manager) {
         this.kassarij = kassarij;
+        this.manager = manager;
     }
 
     /**
@@ -53,62 +57,28 @@ public class Kassa {
         Betaalwijze betaalwijze = klant.getBetaalwijze();
 
         System.out.println("Gekregen korting: " + factuur.getKorting());
+        EntityTransaction transaction = null;
 
-        betaalwijze.betaal(factuur.getTotaal());
+        try {
+            betaalwijze.betaal(factuur.getTotaal());
 
-        setAantal(factuur.getAantal());
-        setGeld(factuur.getTotaal());
+            setAantal(factuur.getAantal());
+            setGeld(factuur.getTotaal());
 
-        klant.verwijderDienblad();
-    }
+            transaction = manager.getTransaction();
+            transaction.begin();
+            manager.persist(factuur);
+            transaction.commit();
 
-    /**
-     * Berekenen van de korting
-     * @param prijs De te betalen prijs
-     * @param klant De klant
-     * @return De te krijgen korting
-     */
-    double korting(double prijs, Persoon klant) {
-        double percentage = 0;
-        double korting;
-        boolean heeftMaximum = false;
-        double maximum = 0;
+            klant.verwijderDienblad();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
 
-        if (klant instanceof Docent) {
-            percentage = ((Docent) klant).geefKortingsPercentage();
-            heeftMaximum = ((Docent) klant).heeftMaximum();
-            maximum = ((Docent) klant).geefMaximum();
-        } else if (klant instanceof KantineMedewerker) {
-            percentage = ((KantineMedewerker) klant).geefKortingsPercentage();
-            heeftMaximum = ((KantineMedewerker) klant).heeftMaximum();
-            maximum = ((KantineMedewerker) klant).geefMaximum();
+            System.out.println(e);
         }
-
-        korting = prijs * (percentage / 100);
-
-        if (korting > maximum && heeftMaximum) {
-            korting = maximum;
-        }
-
-        return korting;
-    }
-
-    /**
-     * Het laten berekenen van de prijs.
-     * @param artikelen Een iterator met de prijs.
-     * @return Een prijs in de vorm van een double.
-     */
-    double berekenPrijs(Iterator artikelen) {
-        double prijs = 0;
-
-        while (artikelen.hasNext()) {
-            Artikel artikel = (Artikel) artikelen.next();
-            prijs += artikel.getPrijs();
-        }
-
-        BigDecimal bd = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
-
-        return bd.doubleValue();
     }
 
     /**

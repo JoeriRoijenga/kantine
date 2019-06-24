@@ -4,6 +4,7 @@ import java.util.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  * Klasse Kantinesimulator_2
@@ -17,6 +18,7 @@ public class KantineSimulatie_2 {
 
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
             Persistence.createEntityManagerFactory("KantineSimulatie");
+
     private EntityManager manager;
 
     // kantine
@@ -54,7 +56,8 @@ public class KantineSimulatie_2 {
      * Constructor
      */
     public KantineSimulatie_2() {
-        kantine = new Kantine();
+        this.manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        kantine = new Kantine(this.manager);
         random = new Random();
         int[] hoeveelheden = getRandomArray(
             AANTAL_ARTIKELEN,
@@ -64,18 +67,12 @@ public class KantineSimulatie_2 {
             artikelnamen, artikelprijzen, hoeveelheden);
 
         kantine.setKantineAanbod(kantineaanbod);
+        runVoorbeeld();
     }
-
-
 
     public void runVoorbeeld() {
-        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
         simuleer(3);
-        manager.close();
-        ENTITY_MANAGER_FACTORY.close();
     }
-
-
 
     /**
      * Methode om een array van random getallen liggend tussen
@@ -199,5 +196,52 @@ public class KantineSimulatie_2 {
 
 
         return persoon;
+    }
+
+    void ResultaatGemiddelde() {
+        Query query = manager.createQuery(
+                "SELECT AVG(f.totaal) FROM Factuur f");
+        List<Object[]> resultList = query.getResultList();
+        double totaalGemiddelde=0.0;
+
+        for(int a = 0; a <= (resultList.size() - 1); a++) {
+            Object c = resultList.get(a);
+            totaalGemiddelde += (Double)c;
+        }
+        System.out.println("Totaal: " + totaalGemiddelde);
+    }
+
+    void ResultaatGemiddeldeKorting() {
+        Query query = manager.createQuery(
+                "SELECT AVG(f.totaal), AVG(f.korting) FROM Factuur f");
+        List<Object[]> resultList = query.getResultList();
+        double totaalGemiddelde = 0.0;
+        double kortingGemiddelde = 0.0;
+
+        for(int a = 0; a <= (resultList.size() - 1); a++) {
+            Object[] c = resultList.get(a);
+            totaalGemiddelde += (Double)c[0];
+            kortingGemiddelde += (Double)c[1];
+
+        }
+        System.out.println("Totaal: " + totaalGemiddelde);
+        System.out.println("Totaal: " + kortingGemiddelde);
+    }
+
+    void ResultaatHoogsteDrie() {
+        Query query = manager.createQuery(
+                "SELECT f.totaal FROM Factuur f ORDER BY totaal DESC LIMIT 3");
+        List<Object[]> resultList = query.getResultList();
+
+        for(int a = 0; a <= (resultList.size() - 1); a++) {
+            Object c = resultList.get(a);
+            System.out.println("Totaal: " + c);
+        }
+
+    }
+
+    void sluitConnectie() {
+        manager.close();
+        ENTITY_MANAGER_FACTORY.close();
     }
 }
