@@ -30,8 +30,8 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder {
      * @param geboorteDatum Geboorte datum van de KantineMedewerker
      * @param geslacht Geslacht van de KantineMedewerker
      */
-    public KantineMedewerker(double medewerkerNummer, boolean kassaBevoegd, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
-        super(BSN, voornaam, achternaam, geboorteDatum, geslacht, betaalwijze);
+    public KantineMedewerker(double medewerkerNummer, boolean kassaBevoegd, int BSN, String voornaam, String achternaam, String geslacht, int betaalwijze) {
+        super(BSN, voornaam, achternaam, geslacht, betaalwijze);
     }
 
     /**

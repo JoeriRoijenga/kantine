@@ -1,5 +1,6 @@
 package hanze.itv1e.project;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class Persoon {
     /**
      * Private geboortedatum in de vorm van een datum.
      */
-    private Datum geboorteDatum;
+    private LocalDate geboorteDatum;
 
     /**
      * Private geslacht types in de vorm van een map.
@@ -67,11 +68,11 @@ public class Persoon {
      * @param geboorteDatum De geboortedatum voor een nieuw persoon.
      * @param geslacht Het geslacht voor een nieuw persoon.
      */
-    Persoon(int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
+    Persoon(int BSN, String voornaam, String achternaam, String geslacht, int betaalwijze) {
         setBSN(BSN);
         setVoornaam(voornaam);
         setAchternaam(achternaam);
-        setGeboorteDatum(geboorteDatum);
+        setGeboorteDatum();
         vulGeslacht();
         setGeslacht(geslacht);
         this.dienbladen = new ArrayList<>();
@@ -166,18 +167,17 @@ public class Persoon {
 
     /**
      * Het veranderen van de geboortedatum.
-     * @param geboorteDatum De nieuwe waarde voor de geboortedatum.
-     */
-    private void setGeboorteDatum(String geboorteDatum) {
-        this.geboorteDatum = new Datum(geboorteDatum);
-    }
-
-    /**
-     * Het veranderen van de geboortedatum.
      */
     private void setGeboorteDatum() {
-        this.geboorteDatum = new Datum();
+        this.geboorteDatum = LocalDate.now();
     }
+
+//    /**
+//     * Het veranderen van de geboortedatum.
+//     */
+//    private void setGeboorteDatum() {
+//        this.geboorteDatum = new Datum();
+//    }
 
     /**
      * Het ophalen van het geslacht.

@@ -30,8 +30,8 @@ public class Docent extends Persoon implements KortingskaartHouder {
      * @param geboorteDatum Geboorte datum van de docent
      * @param geslacht Geslacht van de docent
      */
-    Docent(String docentCode, String afdeling, int BSN, String voornaam, String achternaam, String geboorteDatum, String geslacht, int betaalwijze) {
-        super(BSN, voornaam, achternaam, geboorteDatum, geslacht, betaalwijze);
+    Docent(String docentCode, String afdeling, int BSN, String voornaam, String achternaam, String geslacht, int betaalwijze) {
+        super(BSN, voornaam, achternaam, geslacht, betaalwijze);
         setAfdeling(afdeling);
         setDocentCode(docentCode);
     }
