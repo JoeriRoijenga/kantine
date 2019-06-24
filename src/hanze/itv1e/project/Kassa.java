@@ -2,6 +2,7 @@ package hanze.itv1e.project;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -44,21 +45,19 @@ public class Kassa {
      * @param klant die moet afrekenen
      */
     void rekenAf(Persoon klant) {
-        Dienblad dienblad = klant.krijgDienblad();
-        double prijs = berekenPrijs(dienblad.getArtikelen());
+        Factuur factuur = new Factuur(klant, LocalDate.now());
 
-        System.out.println("Aantal artikelen:" + dienblad.getAantalArtikelen());
-        System.out.println("Te betalen: " + prijs);
+        System.out.println(factuur);
         System.out.println();
-        setAantal(getAantal() + dienblad.getAantalArtikelen());
-        setGeld(getGeld() + prijs);
 
         Betaalwijze betaalwijze = klant.getBetaalwijze();
-        double korting = korting(prijs, klant);
 
-        System.out.println("Gekregen korting: " + korting);
+        System.out.println("Gekregen korting: " + factuur.getKorting());
 
-        betaalwijze.betaal(prijs - korting);
+        betaalwijze.betaal(factuur.getTotaal());
+
+        setAantal(factuur.getAantal());
+        setGeld(factuur.getTotaal());
 
         klant.verwijderDienblad();
     }
@@ -154,7 +153,7 @@ public class Kassa {
      * @param aantal Het nieuwe aantal producten.
      */
     void setAantal(int aantal) {
-        this.aantal = aantal;
+        this.aantal = this.aantal + aantal;
     }
 
     /**
@@ -171,6 +170,6 @@ public class Kassa {
      * @param geld Het nieuwe bedrag dat in de kassa zit.
      */
     void setGeld(double geld) {
-        this.geld = geld;
+        this.geld = this.geld + geld;
     }
 }
