@@ -1,6 +1,9 @@
 package hanze.itv1e.project;
 
 import java.util.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * Klasse Kantinesimulator_2
@@ -11,6 +14,10 @@ import java.util.*;
  * @version 0.1 (13-05-2019)
  */
 public class KantineSimulatie_2 {
+
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY =
+            Persistence.createEntityManagerFactory("KantineSimulatie");
+    private EntityManager manager;
 
     // kantine
     private Kantine kantine;
@@ -58,6 +65,17 @@ public class KantineSimulatie_2 {
 
         kantine.setKantineAanbod(kantineaanbod);
     }
+
+
+
+    public void runVoorbeeld() {
+        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        simuleer(3);
+        manager.close();
+        ENTITY_MANAGER_FACTORY.close();
+    }
+
+
 
     /**
      * Methode om een array van random getallen liggend tussen

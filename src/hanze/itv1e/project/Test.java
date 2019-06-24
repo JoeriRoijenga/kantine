@@ -4,7 +4,7 @@ public class Test {
     public static void main(String[] args) {
         KantineSimulatie_2 simulator = new KantineSimulatie_2();
 
-        simulator.simuleer(3);
+        simulator.runVoorbeeld();
 
         //Administratie ad = new Administratie();
 //        int[] a = {45, 56, 34, 39, 40, 31};
