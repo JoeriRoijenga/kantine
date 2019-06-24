@@ -1,5 +1,8 @@
 package hanze.itv1e.project;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 /**
  * Klasse Artikel
  *
@@ -8,16 +11,19 @@ package hanze.itv1e.project;
  * @author Joeri Roijenga & Niels de Vries.
  * @version 0.1 (13-05-2019)
  */
+@Embeddable
 public class Artikel {
 
     /**
      * Private naam in de vorm van een string.
      */
+    @Column (name = "naam")
     private String naam;
 
     /**
      * Private prijs in de vorm van een double.
      */
+    @Column (name = "prijs")
     private double prijs;
 
     /**

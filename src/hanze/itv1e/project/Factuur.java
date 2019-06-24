@@ -3,15 +3,16 @@ package hanze.itv1e.project;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.io.Serializable;
-import java.util.Iterator;
-import java.math.BigDecimal;
+import java.util.*;
+import java.math.BigDecimal;import javax.persistence.*;
 import java.math.RoundingMode;
 
 @Entity
 @Table(name = "factuur")
+@Embeddable
 public class Factuur implements Serializable {
     @Id
-    @Column(name = "id", unique = true)
+    @Column(name = "factuur_id", unique = true)
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
@@ -29,6 +30,10 @@ public class Factuur implements Serializable {
 
     @Column(name = "BSN")
     private int BSN;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinTable(name = "factuurregel", joinColumns = @JoinColumn(name = "factuur_id"), inverseJoinColumns = @JoinColumn(name = "factuurregel_id"))
+    ArrayList<FactuurRegel> factuurregel;
 
     public Factuur() {
         totaal = 0;
